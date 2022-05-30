@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>تسجيل دخول لوحة التحكم</title>
+    <title>{{ trans('auth.Login_to_dashboard') }}</title>
     <link rel="apple-touch-icon" href="{{asset("assets/admin/images/ico/apple-icon-120.png")}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset("assets/admin/images/ico/favicon.ico")}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -81,12 +81,11 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <h2 class="brand-text text-primary ms-1"> لوحة تحكم الموقع</h2>
+                                    <h2 class="brand-text text-primary ms-1">{{ trans('auth.website_dashboard') }}</h2>
                                 </a>
 
-                                <h4 class="card-title mb-1">اهلا بك في لوحة التحكم</h4>
-                                <p class="card-text mb-2">من فضلك سجل الدخول بحسابك لبدء المغامرة</p>
-
+                                <h4 class="card-title mb-1">{{ trans('auth.welcome_to_dashboard') }}</h4>
+                                <p class="card-text mb-2">{{ trans('auth.please_login_to_begin_theadventure') }}</p>
                                 @include('alerts.errors')
                                 @include('alerts.success')
 
@@ -95,7 +94,7 @@
                                 @csrf
 
                                 <div class="mb-1">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="email" class="form-label">{{ trans('auth.email') }}</label>
                               
                                       <input id="login" type="text" class="form-control
                                        @error('login') is-invalid @enderror" name="login" value="{{ old('login') }}" required >
@@ -104,9 +103,9 @@
                                 <div class="mb-1">
                                     <div class="d-flex justify-content-between">
                                         <label class="form-label" for="login-password" 
-                                        name="password" type="password">Password</label>
+                                        name="password" type="password">{{ trans('auth.password') }}</label>
                                         <a href="{{route('forgot.password.form')}}">
-                                            <small>Forgot Password?</small>
+                                            <small>{{ trans('auth.forget_password') }} ?</small>
                                         </a>
                                     </div>
                                     <div class="input-group input-group-merge form-password-toggle">
@@ -117,10 +116,10 @@
                                 <div class="mb-1">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
-                                        <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                        <label class="form-check-label" for="remember-me"> {{ trans('auth.remember_me') }}</label>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary w-100" tabindex="4" type="submit">Sign in</button>
+                                <button class="btn btn-primary w-100" tabindex="4" type="submit">{{ trans('auth.sign_in') }}</button>
 
                             </form>
                         </div>

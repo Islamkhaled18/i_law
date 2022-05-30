@@ -46,7 +46,7 @@ class Writers extends Component
 
         if (!empty($this->image)){
      
-            $this->image->store('photos/writers');
+            $this->image->store('photos/writers','public');
         }
 
         if($save){

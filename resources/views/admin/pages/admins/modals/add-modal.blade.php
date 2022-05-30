@@ -39,6 +39,7 @@
                                 <option disabled>Choose Your Default Language</option>
                                 <option value="Arabic">Arabic</option>
                                 <option value="English">English</option>
+                                <option value="Frensh">Frensh</option>
                             </select>
                             <span class="text-danger"> @error('default_language') {{ $message }}@enderror</span>
                         </div>
@@ -54,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Admin Image</label>
-                            <input type="file" id="image" accept="image" class="form-control" placeholder="Image" wire:model="image">
+                            <input type="file" id="image" name="image" accept="image" class="form-control" wire:model="image">
                             <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">

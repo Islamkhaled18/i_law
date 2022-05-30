@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Cities extends Component
 {
-    public $name_ar,$name_en,$name_fr,$city_code,$governorate;
+    public $name_ar,$name_en,$name_fr,$city_code,$governorate,$governorate_id;
     public $upd_name_ar,$upd_name_en,$upd_name_fr,$upd_city_code,$city_id,$upd_governorate;
     protected $listeners =['hazf'];
 

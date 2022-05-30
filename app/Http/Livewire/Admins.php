@@ -59,8 +59,7 @@ class Admins extends Component
 
         if (!empty($this->image)){
      
-            $this->image->store('public/admins/photos');
-
+            $this->image->store('photos/admins','public');
         }
 
         if($save){

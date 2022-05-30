@@ -1,6 +1,7 @@
 <div>
     <br><br>
     <!-- Striped rows start -->
+    @if(!$showSubSection)
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
@@ -31,7 +32,16 @@
                                     <td>{{$section->name_ar}}</td>
                                     <td>{{$section->name_en}}</td>
                                     <td>{{$section->name_fr}}</td>
-                                    <td>{{$section->parent->name_ar ?? '--'}}</td>
+                                    <td>
+                                        <button
+                                        wire:click="SubSection({{$section->id}})" data-bs-target="#SubSection"
+                                        type="button" class="btn btn-sm btn-icon btn-info" style="margin-inline: .2rem"
+                                    >
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                        
+                                        
+                                    </td>
 
                                     <td>
                                         <div class="d-flex justify-content-center">
@@ -76,5 +86,8 @@
             </div>
         </div>
     </div>
+    @else
+        @livewire('admin.sub-sections', ['section_id' => $selectedSection])
+    @endif
     <!-- Striped rows end -->
 </div>

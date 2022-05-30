@@ -22,6 +22,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>status</th>
+                                <th>Photo</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -34,6 +35,21 @@
                                     <td>{{ $admin->phone }}</td>
                                     <td><span
                                             class="badge rounded-pill badge-light-primary me-1">{{ $admin->getActive() }}</span>
+                                    </td>
+                                    <td>
+                                        @if ($admin->image === null)
+                                        <img src="https://ui-avatars.com/api/?background=random&name={{ $admin->name ?? '--' }}"
+                                        id="blah" alt="your image">
+
+                                        @else
+                                            <span class="avatar"><img class="round"
+
+                                                <img src="{{ url('storage/photos/admins') }}/{{ $admin->image }}"
+                                                    alt="avatar" height="40" width="40">
+                                                <span class="avatar-status-online"></span>
+                                            </span>
+                                        @endif
+
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center">

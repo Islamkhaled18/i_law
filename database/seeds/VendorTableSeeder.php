@@ -29,6 +29,7 @@ class VendorTableSeeder extends Seeder
            'fax'=>'0546546546',
            'whatsApp'=>'012345677',
            'company_name'=>'maadi',
+           'bio'=>'bio bio bio bio bio bio'
         ]);
     }
 }

@@ -54,4 +54,10 @@ class Vendor extends Authenticatable implements JWTSubject
         return [];
     }
 
+    protected $appends = ['image_path'];
+
+        public function getImagePathAttribute(){
+            return asset('storage/' . $this->image);
+        }
+
 }

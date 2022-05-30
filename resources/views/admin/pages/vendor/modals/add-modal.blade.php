@@ -73,10 +73,16 @@
                             <span class="text-danger"> @error('address') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Default Language</label>
-                            <input type="text" class="form-control" placeholder="Default Language" wire:model="default_language">
+                            <label for="">Default language</label>
+                            <select class="form-control" wire:model="default_language" >
+                                <option disabled>Choose Your Default Language</option>
+                                <option value="Arabic">Arabic</option>
+                                <option value="English">English</option>
+                                <option value="Frensh">Frensh</option>
+                            </select>
                             <span class="text-danger"> @error('default_language') {{ $message }}@enderror</span>
                         </div>
+                        
                         <div class="form-group">
                             <label for="">Land line</label>
                             <input type="text" class="form-control" placeholder="Land line" wire:model="land_line">
@@ -106,6 +112,11 @@
                             <label for="">Vendor Image</label>
                             <input type="file" id="image" accept="image" class="form-control" placeholder="Image" wire:model="image">
                             <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bio</label>
+                            <input type="text" class="form-control" placeholder="Bio" wire:model="bio">
+                            <span class="text-danger"> @error('bio') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>

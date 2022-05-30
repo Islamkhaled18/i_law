@@ -56,15 +56,27 @@ return [
         ],
         'admins' => [
             'driver' => 'local',
-            'root' => storage_path('app/admins'),
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
         'vendors' => [
             'driver' => 'local',
-            'root' => storage_path('app/vendors'),
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
         'writers' => [
             'driver' => 'local',
-            'root' => storage_path('app/writers'),
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'partners' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
 
         's3' => [

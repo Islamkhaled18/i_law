@@ -10,14 +10,13 @@ use App\Http\Controllers\User\Api\GovernorateController;
 use App\Http\Controllers\User\Api\SettingController;
 use App\Http\Controllers\User\Api\faqController;
 use App\Http\Controllers\User\Api\ContactController;
+use App\Http\Controllers\User\Api\PartnerController;
 use App\Http\Controllers\User\Api\SectionController;
 use App\Http\Controllers\User\Api\WriterController;
 use App\Http\Controllers\User\Api\VendorController;
-
-
-
-
-
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Governorate;
 
 // Route::prefix('user')->controller(AuthController::class)->group(function () {
 Route::group(['prefix' => 'user'], function () {
@@ -40,77 +39,6 @@ Route::group(['prefix' => 'vendor'], function () {
         Route::post('me', [AuthVendorController::class, 'me']);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Route::group([
-//     // 'middleware' => 'api',
-//     'prefix' => 'auth'
-// ], function ($router) {
-
-//     // --------------- User ------------------------------ //
-
-//     Route::group(['prefix' => 'user'], function () {
-
-//         Route::post('/login', ['middleware' => 'auth:api',AuthController::class, 'login']);
-//         Route::post('/register', [AuthController::class, 'register']);
-//         Route::post('/logout', [AuthConAuthControllertroller::class, 'logout']);
-//         Route::post('/refresh', [AuthController::class, 'refresh']);
-//         Route::get('/user-profile', [AuthController::class, 'userProfile']);
-//         Route::post('forgot-password', [AuthController::class, 'forgotPassword']);
-//         Route::post('reset-password', [AuthController::class, 'reset'])->name('password.reset');
-//     }); //User profile   
-
-
-//     // --------------- Vendor ------------------------------ //
-//     // Route::group(['prefix' => 'vendor'], function () {
-
-//     //     Route::post('/login', [AuthVendorController::class, 'login']);
-//     //     Route::post('/register', [AuthVendorController::class, 'register']);
-//     //     Route::post('/logout', [AuthVendorController::class, 'logout']);
-//     //     Route::post('/refresh', [AuthVendorController::class, 'refresh']);
-//     //     Route::get('/user-profile', [AuthVendorController::class, 'userProfile']);
-//     // }); //edit & update Vendor profile
-
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /// contry ///
 Route::group(['prefix' => 'countries'], function () {
@@ -200,3 +128,42 @@ Route::group(['prefix' => 'sections'], function () {
     Route::post('/section/{id}', [SectionController::class, 'destroy']);
 });
 // writer ///
+
+
+/// partner ///
+Route::group(['prefix' => 'partner'], function () {
+
+    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::get('/partner/{id}', [PartnerController::class, 'show']);
+});
+// partner ///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('govovernorate',function($request){
+
+//     return Country::with('governorates')->get();
+
+// });
+
+
+Route::get('govovernorate',function(){
+
+    return Country::with('governorates')->get();
+
+});
+

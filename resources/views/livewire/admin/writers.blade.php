@@ -40,7 +40,7 @@
                                         @else
                                             <span class="avatar"><img class="round"
 
-                                                <img src="{{ url('photos/writers') }}/{{ $writer->image }}"
+                                                <img src="{{ url('storage/photos/writers') }}/{{ $writer->image }}"
                                                     alt="avatar" height="40" width="40">
                                                 <span class="avatar-status-online"></span>
                                             </span>

@@ -1,6 +1,7 @@
 <div>
     <br><br>
     <!-- Striped rows start -->
+    @if(!$showCityGovenorate)
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
@@ -21,7 +22,7 @@
                             <th>Name EN</th>
                             <th>Name FR</th>
                             <th>Governorate code</th>
-                            <th>Country</th>
+                            <th>City</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -33,7 +34,17 @@
                                     <td>{{$governorate->name_en}}</td>
                                     <td>{{$governorate->name_fr}}</td>
                                     <td>{{$governorate->governorate_code}}</td>
-                                    <td>{{$governorate->country->name_ar ?? '--'}}</td>
+                                    <td>
+                                        <button
+                                        wire:click="CityGovenorate({{$governorate->id}})" data-bs-target="#CityGovenorate"
+                                        type="button" class="btn btn-sm btn-icon btn-info" style="margin-inline: .2rem"
+                                    >
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                        
+                                        
+                                    </td>
+
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             {{-- Begin: Edit button --}}
@@ -77,5 +88,8 @@
             </div>
         </div>
     </div>
+    @else
+        @livewire('admin.cities', ['governorate_id' => $selectedGovernorate])
+    @endif
     <!-- Striped rows end -->
 </div>

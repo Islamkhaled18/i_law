@@ -20,8 +20,7 @@ class AuthVendorController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->guard('user_api')->factory()->getTTL() * 60,
-            'vendor' => Vendor::where('email', request(['email']))->first()
+            'vendor' => Vendor::select('id','name','email','user_name','role_id','default_language','phone','country_id','governorate_id','city_id','address','land_line','fax','whatsApp','is_active')->where('email', request(['email']))->get()
         ]);
     }
 

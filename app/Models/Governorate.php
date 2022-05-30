@@ -15,7 +15,17 @@ class Governorate extends Model
     }
 
     public function cities(){
-        return $this->hasMany(City::class);
+        return $this->hasMany(City::class,'city_id');
     }
+
+
+    protected $appends  = ['city'];
+
+     //attributes----------------------------------
+    public function getCityAttribute()
+    {
+        return $this->cities();
+
+    }//end of get image path
 
 }

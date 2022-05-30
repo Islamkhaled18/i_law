@@ -81,18 +81,18 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+                                    <h2 class="brand-text text-primary ms-1">I Law</h2>
                                 </a>
 
-                                <h4 class="card-title mb-1">Reset Password 🔒</h4>
-                                <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
+                                <h4 class="card-title mb-1">{{ trans('auth.reset_password') }} 🔒</h4>
+                                <p class="card-text mb-2">{{ trans('auth.your_new_password_must_be_different_from_previously_used_passwords') }}</p>
 
                                 <form class="auth-reset-password-form mt-2" action="{{route('reset.password')}}" method="POST">
                                    
                                     <input type="hidden" name="token" value="{{ $token }}">
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="reset-password-new">New Password</label>
+                                            <label class="form-label" for="reset-password-new">{{ trans('auth.new_password') }}</label>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input type="password" class="form-control form-control-merge" id="password" 
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="reset-password-confirm">Confirm Password</label>
+                                            <label class="form-label" for="reset-password-confirm">{{ trans('auth.confirm_password') }}</label>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input type="password" class="form-control form-control-merge"
@@ -116,10 +116,10 @@
                                             <span class="text-danger">@error('password_confirmation') {{ $message }} @enderror</span>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100" tabindex="3">Set New Password</button>
+                                    <button type="submit" class="btn btn-primary w-100" tabindex="3">{{ trans('auth.set_new_password') }}</button>
                                 </form>
                                 <p class="text-center mt-2">
-                                    <a href="r{{route('admin.login')}}"> <i data-feather="chevron-left"></i> Back to login </a>
+                                    <a href="r{{route('admin.login')}}"> <i data-feather="chevron-left"></i>{{ trans('auth.back_to_login') }}</a>
                                 </p>
                             </div>
                         </div>

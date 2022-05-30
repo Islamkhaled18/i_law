@@ -20,6 +20,7 @@ class WriterResource extends JsonResource
             'name_ar'=>$this->name_ar,
             'name_en'=>$this->name_en,
             'bio'=>$this->bio,
+            'image'=> asset('storage/photos/writers/' . $this->image),
             
         ];
     }

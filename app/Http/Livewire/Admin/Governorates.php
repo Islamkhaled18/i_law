@@ -2,24 +2,41 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\City;
 use App\Models\Country;
+use App\Models\Cuurency;
 use Livewire\Component;
 use App\Models\Governorate;
 
 
 class Governorates extends Component
 {
+    public $showCityGovenorate = false; 
+    public $selectedGovernorate;
+
+
     public $name_ar,$name_en,$name_fr,$governorate_code,$country, $country_id;
     public $upd_name_ar,$upd_name_en,$upd_name_fr,$upd_governorate_code,$governorate_id,$upd_country;
     protected $listeners =['enhaa'];
 
 
+    public $currencies;
+    public $countries;
+    public $governorates;
+    public $cities;
+    public $data = [];
+
+    public function mount () 
+    {
+        $this->currencies = Cuurency::orderBy('id','asc')->get();
+        $this->countries = Country::orderBy('id', 'desc')->get();
+        $this->governorates = Governorate::where('country_id',$this->id)->orderBy('id', 'desc')->get();
+        $this->cities = City::where('governorate_id',$this->id)->orderBy('id', 'desc')->get();
+    }
+
     public function render()
     {
-        return view('livewire.admin.governorates',[
-            'governorates'=>Governorate::where('country_id',$this->country_id)->orderBy('id','asc')->paginate(5),
-            'countries'=>Country::orderBy('id','asc')->get()
-        ]);
+        return view('livewire.admin.governorates', $this->data);
     }
 
     public function OpenAddGovernoratesModal(){
@@ -109,5 +126,17 @@ class Governorates extends Component
         if($del){
             $this->dispatchBrowserEvent('enhaad');
         }
+    }
+
+    public function CityGovenorate(Governorate $governorate){
+
+        // $this->view = 'livewire.admin.governorates'; //write view path
+        // $this->data = [
+        //     'country' => $country->id,
+        //     'governorates' => Governorate::where('country_id',$this->id)->orderBy('id', 'desc')->get()
+        // ];
+
+        $this->showCityGovenorate = true;
+        $this->selectedGovernorate = $governorate->id;
     }
 }

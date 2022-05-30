@@ -37,6 +37,10 @@ class Admin extends Authenticatable
     {
         return $query->where('is_active', 1);
     }
+    protected $appends = ['image_path'];
 
+    public function getImagePathAttribute(){
+        return asset('storage/' . $this->image);
+    }
     
 }

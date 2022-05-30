@@ -103,6 +103,11 @@
                             <input type="text" class="form-control" placeholder="Company name" wire:model="upd_company_name">
                             <span class="text-danger"> @error('upd_company_name') {{ $message }}@enderror</span>
                         </div>
+                        <div class="form-group">
+                            <label for="">Bio</label>
+                            <input type="text" class="form-control" placeholder="Bio" wire:model="upd_bio">
+                            <span class="text-danger"> @error('upd_bio') {{ $message }}@enderror</span>
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                         </div>

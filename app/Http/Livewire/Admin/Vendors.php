@@ -14,10 +14,10 @@ class Vendors extends Component
     use WithFileUploads;
 
     public $name,$email,$user_name,$password,$is_active,$default_language,
-    $country,$governorate,$city,$address, $land_line,$phone, $fax, $whatsApp,$company_name;
+    $country,$governorate,$city,$address, $land_line,$phone, $fax, $whatsApp,$company_name,$bio;
 
     public $upd_name,$upd_email,$upd_user_name,$upd_password,$upd_is_active,$upd_default_language,
-    $upd_country,$upd_governorate,$upd_city,$upd_address, $upd_land_line,$upd_phone, $upd_fax, $upd_whatsApp,$upd_company_name,$vendor_id;
+    $upd_country,$upd_governorate,$upd_city,$upd_address, $upd_land_line,$upd_phone, $upd_fax, $upd_whatsApp,$upd_company_name,$vendor_id,$upd_bio;
 
     protected $listeners =['zzz'];
     public $image;
@@ -48,6 +48,7 @@ class Vendors extends Component
         $this->fax ='';
         $this->whatsApp ='';
         $this->company_name ='';
+        $this->bio = '';  
         $this->dispatchBrowserEvent('OpenAddVendorsModal');
     }
     public function saveVendor(){
@@ -68,14 +69,15 @@ class Vendors extends Component
             'fax'=>$this->fax,
             'whatsApp'=>$this->whatsApp,
             'company_name'=>$this->company_name,
-            'image'=>$this->image->hashName()
+            'bio'=>$this->bio,
+            'image'=>$this->image->hashName(),
         ]);
         
 
 
         if (!empty($this->image)){
      
-            $this->image->store('public/vendors/photos');
+            $this->image->store('photos/vendors','public');
 
         }
         
@@ -103,6 +105,7 @@ class Vendors extends Component
         $this->upd_fax = $info->fax;
         $this->upd_whatsApp = $info->whatsApp;
         $this->upd_company_name = $info->company_name;
+        $this->upd_bio = $info->bio;
         $this->vendor_id = $info->id;
         $this->dispatchBrowserEvent('OpenEditVendorModal',[
             'id'=>$id
@@ -145,6 +148,7 @@ class Vendors extends Component
             'fax'=>$this->upd_fax,
             'whatsApp'=>$this->upd_whatsApp,
             'company_name'=>$this->upd_company_name,
+            'bio'=>$this->upd_bio,
         ]);
         if($update){
             $this->dispatchBrowserEvent('CloseEditVendorModal');

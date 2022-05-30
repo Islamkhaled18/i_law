@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\City;
 use App\Models\Country;
 use App\Models\Cuurency;
 use App\Models\Governorate;
@@ -18,13 +19,14 @@ class Countries extends Component
     //public $view = 'livewire.admin.countries';
     public $name_ar, $name_en, $name_fr, $country_code, $country_phone_code;
     public $currency =[];
-    public $upd_name_ar, $upd_name_en, $upd_name_fr, $upd_country_code, $upd_country_phone_code,$country_id;
+    public $upd_name_ar, $upd_name_en, $upd_name_fr, $upd_country_code, $upd_country_phone_code,$country_id,$city_id;
     public $upd_currency =[];
     protected $listeners =['damage','country'];
 
     public $currencies;
     public $countries;
     public $governorates;
+    public $cities;
     public $data = [];
 
     public function mount () 
@@ -32,6 +34,7 @@ class Countries extends Component
         $this->currencies = Cuurency::orderBy('id','asc')->get();
         $this->countries = Country::orderBy('id', 'desc')->get();
         $this->governorates = Governorate::where('country_id',$this->id)->orderBy('id', 'desc')->get();
+        $this->cities = City::where('governorate_id',$this->id)->orderBy('id', 'desc')->get();
     }
     public function render()
     {

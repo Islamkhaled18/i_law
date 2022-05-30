@@ -38,6 +38,7 @@ class CreateVendorsTable extends Migration
             $table->string('whatsApp')->nullable();
             $table->string('company_name')->nullable();
             $table->string('image')->nullable();
+            $table->longText('bio')->nullable();
             $table->timestamps();
         });
     }

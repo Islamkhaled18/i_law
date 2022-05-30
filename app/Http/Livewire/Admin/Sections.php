@@ -7,14 +7,19 @@ use Livewire\Component;
 
 class Sections extends Component
 {
+    public $showSubSection = false; 
+    public $selectedSection;
+
+
     public $name_ar,$name_en,$name_fr,$parent_id;
     public $upd_name_ar,$upd_name_en,$upd_name_fr,$upd_parent_id;
     protected $listeners =['ccc'];
+  
 
     public function render()
     {
         return view('livewire.admin.sections',[
-            'sections'=>Section::orderBy('id','asc')->get(),
+            'sections'=>Section::where('parent_id',null)->orderBy('id','asc')->get(),
         ]);
     }
 
@@ -91,5 +96,12 @@ class Sections extends Component
         if($del){
             $this->dispatchBrowserEvent('cccd');
         }
+    }
+
+    public function SubSection(Section $section){
+
+    
+        $this->showSubSection = true;
+        $this->selectedSection = $section->id;
     }
 }

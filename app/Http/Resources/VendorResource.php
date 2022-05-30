@@ -20,7 +20,6 @@ class VendorResource extends JsonResource
             'name'=>$this->name,
             'email'=>$this->email,
             'user_name'=>$this->user_name,
-            'password'=>$this->password,
             'role_id'=>$this->role_id,
             'is_active'=>$this->is_active,
             'default_language'=>$this->default_language,
@@ -33,6 +32,8 @@ class VendorResource extends JsonResource
             'fax'=>$this->fax,
             'whatsApp'=>$this->whatsApp,
             'company_name'=>$this->company_name,
+            'bio'=>$this->bio,
+            'image'=> asset('storage/photos/vendors/' . $this->image),
           
         ];
     }
