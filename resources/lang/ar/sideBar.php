@@ -8,7 +8,7 @@ return [
     'permissions'=>'الصلاحيات',
     'geo_locales'=>'المواقع',
     'countries'=>'البلاد',
-    'لovernorates'=>'المحافظات',
+    'governorates'=>'المحافظات',
     'cities'=>'المدن',
     'writers'=>'الكتاب',
     'books'=>'الكتب',

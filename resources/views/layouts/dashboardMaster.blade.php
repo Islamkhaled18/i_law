@@ -471,7 +471,7 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('assets/admin/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
     <!-- END: Page JS-->
-    <script src="{{ asset('jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -1169,10 +1169,10 @@
             alert('This Partner has been deleted');
         });
     </script>
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script>
-        CKEDITOR.replace('summary-ckeditor');
-    </script>
+    <script src="https://cdn.ckeditor.com/cheditor5/27.1.0/classic/ckeditor.js"></script>
+ 
+    @yield('scripts')
+    
     <script type="text/javascript">
         var url = "{{ route('changeLang') }}";
 
@@ -1181,6 +1181,7 @@
         });
     </script>
 
+   
 
 </body>
 <!-- END: Body-->

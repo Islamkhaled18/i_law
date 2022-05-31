@@ -20,24 +20,9 @@ class Section extends Model
         return $this->belongsTo(\App\Models\Section::class, 'parent_id');
     }
 
-    // public function scopeChild($query)
-    // {
-    //     return $query->where('parent_id' ,'!=', null);
-
-    // }
-    // public function scopeParent($query)
-    // {
-    //     return $query->where('parent_id' , null);
-
-    // }
-    // public function _parent(){
-
-    //     return $this->belongsto(Self::class , 'parent_id');
-    // }
-
-    // public function children(){
-    //     return $this->hasMany(Self::class , 'parent_id');
-    // }
+    public function books(){
+        return $this->hasMany(Book::class);
+    }
 
     
 

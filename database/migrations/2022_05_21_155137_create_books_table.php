@@ -28,6 +28,8 @@ class CreateBooksTable extends Migration
             $table->foreign('writer_id')->references('id')->on('writers')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('vendor_id')->unsigned();
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('section_id')->unsigned()->nullable();
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('stock');
             $table->decimal('price');
             $table->decimal('offer')->nullable();

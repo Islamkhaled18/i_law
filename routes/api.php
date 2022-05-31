@@ -14,6 +14,8 @@ use App\Http\Controllers\User\Api\PartnerController;
 use App\Http\Controllers\User\Api\SectionController;
 use App\Http\Controllers\User\Api\WriterController;
 use App\Http\Controllers\User\Api\VendorController;
+use App\Http\Controllers\User\Api\CurrencyController;
+use App\Http\Controllers\User\Api\BookController;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Governorate;
@@ -122,7 +124,7 @@ Route::group(['prefix' => 'Contact'], function () {
 Route::group(['prefix' => 'sections'], function () {
 
     Route::get('/sections', [SectionController::class, 'index']);
-    Route::get('/section/{name_en}', [SectionController::class, 'show']);
+    Route::get('/section/{id}', [SectionController::class, 'show']);
     Route::post('/sections', [SectionController::class, 'store']);
     Route::put('/section/{id}', [SectionController::class, 'update']);
     Route::post('/section/{id}', [SectionController::class, 'destroy']);
@@ -137,6 +139,22 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('/partner/{id}', [PartnerController::class, 'show']);
 });
 // partner ///
+
+/// currency ///
+Route::group(['prefix' => 'currency'], function () {
+
+    Route::get('/currencies', [CurrencyController::class, 'index']);
+    Route::get('/currency/{id}', [CurrencyController::class, 'show']);
+});
+// currency ///
+
+/// book ///
+Route::group(['prefix' => 'book'], function () {
+
+    Route::get('/books', [BookController::class, 'index']);
+    Route::get('/book/{id}', [BookController::class, 'show']);
+});
+// book ///
 
 
 

@@ -80,6 +80,16 @@
                           </select>
                           <span class="text-danger"> @error('upd_vendor') {{ $message }}@enderror</span>
                         </div>
+                        <div class="form-group">
+                            <label for="">Section</label>
+                            <select class="form-control" wire:model="upd_section">
+                                <option disabled value="">Choose the section</option>
+                                @foreach ($sections as $section)
+                                    <option value="{{ $section->id }}">{{ $section->name_ar }}</option>
+                                @endforeach
+                          </select>
+                          <span class="text-danger"> @error('upd_section') {{ $message }}@enderror</span>
+                        </div>
 
 
                         <div class="form-group">

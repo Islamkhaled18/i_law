@@ -14,26 +14,74 @@ class VendorController extends Controller
 {
     use vendorTrait;
 
-    public function index(){
+    public function index(Request $request)
+    {
 
-        $vendor = VendorResource::collection(Vendor::get());
-        return $this->vendorApiResponse($vendor,'ok',200);
+        $lang = $request->header('lang');
+        $list = [];
+        $vendors = Vendor::with('books')->get();
+        foreach ($vendors as  $vendor) {
+            $list[] = [
+                'id' => $vendor->id,
+                'name' => $vendor->name,
+                'email' => $vendor->email,
+                'user_name' => $vendor->user_name,
+                'role_id' => $vendor->role_id,
+                'is_active' => $vendor->is_active,
+                'default_language' => $vendor->default_language,
+                'country_id' => $vendor->country_id,
+                'governorate_id' => $vendor->governorate_id,
+                'city_id' => $vendor->city_id,
+                'address' => $vendor->address,
+                'land_line' => $vendor->land_line,
+                'phone' => $vendor->phone,
+                'fax' => $vendor->fax,
+                'whatsApp' => $vendor->whatsApp,
+                'company_name' => $vendor->company_name,
+                'bio' => $vendor->bio,
+                'image' => asset('storage/photos/vendors/' . $vendor->image),
+                'books' => $vendor['books'],
 
-    }
-
-    public function show($id){
-
-        $vendor = Vendor::find($id);
-
-        if($vendor){
-            return $this->vendorApiResponse(new VendorResource($vendor),'ok',200);
+            ];
         }
-        return $this->vendorApiResponse(null,'The vendor Not Found',404);
+        return $this->vendorApiResponse($list, 'ok', 200);
+    }
 
+     public function show($id,Request $request){
+        $vendor = Vendor::with('books')->find($id);
+
+        if ($vendor) {
+            $lang = $request->header('lang');
+            $data = [
+                'id' => $vendor->id,
+                'name' => $vendor->name,
+                'email' => $vendor->email,
+                'user_name' => $vendor->user_name,
+                'role_id' => $vendor->role_id,
+                'is_active' => $vendor->is_active,
+                'default_language' => $vendor->default_language,
+                'country_id' => $vendor->country_id,
+                'governorate_id' => $vendor->governorate_id,
+                'city_id' => $vendor->city_id,
+                'address' => $vendor->address,
+                'land_line' => $vendor->land_line,
+                'phone' => $vendor->phone,
+                'fax' => $vendor->fax,
+                'whatsApp' => $vendor->whatsApp,
+                'company_name' => $vendor->company_name,
+                'bio' => $vendor->bio,
+                'image' => asset('storage/photos/vendors/' . $vendor->image),
+                'books' => $vendor['books'],
+            ];
+
+            return $this->vendorApiResponse($data, 'ok', 200);
+        }
+        return $this->vendorApiResponse(null, 'The vendor Not Found', 404);
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -49,7 +97,7 @@ class VendorController extends Controller
             'address' => 'required',
         ]);
         if ($validator->fails()) {
-            return $this->vendorApiResponse(null,$validator->errors(),400);
+            return $this->vendorApiResponse(null, $validator->errors(), 400);
         }
         $vendor = new Vendor();
         $vendor->name = $request->name;
@@ -70,16 +118,17 @@ class VendorController extends Controller
         $vendor->company_name = $request->company_name;
         $vendor->save();
 
-        if($vendor){
-            return $this->vendorApiResponse(new VendorResource($vendor),'The vendor Saved',201);
+        if ($vendor) {
+            return $this->vendorApiResponse(new VendorResource($vendor), 'The vendor Saved', 201);
         }
 
-        return $this->vendorApiResponse(null,'The vendor Not Save',400);
+        return $this->vendorApiResponse(null, 'The vendor Not Save', 400);
     }
 
 
 
-    public function update(Request $request ,$id){
+    public function update(Request $request, $id)
+    {
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -96,15 +145,15 @@ class VendorController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->vendorApiResponse(null,$validator->errors(),400);
+            return $this->vendorApiResponse(null, $validator->errors(), 400);
         }
 
         $vendor = Vendor::find($id);
-        if(!$vendor){
-            return $this->vendorApiResponse(null,'The vendor Not Found',404);
+        if (!$vendor) {
+            return $this->vendorApiResponse(null, 'The vendor Not Found', 404);
         }
 
-       
+
         $vendor->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -124,24 +173,24 @@ class VendorController extends Controller
             'company_name' => $request->company_name,
         ]);
 
-        if($vendor){
-            return $this->vendorApiResponse(new VendorResource($vendor),'The vendor update',201);
+        if ($vendor) {
+            return $this->vendorApiResponse(new VendorResource($vendor), 'The vendor update', 201);
         }
-
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         $vendor = Vendor::find($id);
 
-        if(!$vendor){
-            return $this->vendorApiResponse(null,'The vendor Not Found',404);
+        if (!$vendor) {
+            return $this->vendorApiResponse(null, 'The vendor Not Found', 404);
         }
 
         $vendor->delete($id);
 
-        if($vendor){
-            return $this->vendorApiResponse(null,'The vendor deleted',200);
+        if ($vendor) {
+            return $this->vendorApiResponse(null, 'The vendor deleted', 200);
         }
     }
 }

@@ -4,7 +4,7 @@
                 data-i18n="Dashboards">{{ trans('sideBar.dashboard') }}</span><span
                 class="badge badge-light-warning rounded-pill ms-auto me-1"></span></a>
     </li>
-    <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">&amp; {{ trans('sidBar.pages') }}</span><i
+    <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">{{ trans('sideBar.pages') }}</span><i
             data-feather="more-horizontal"></i>
     </li>
     <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fa-solid fa-user-plus"></i></i><span
@@ -17,7 +17,7 @@
                         data-feather="mail"></i><span class="menu-title text-truncate"
                         data-i18n="Email">{{ trans('sideBar.roles') }}</span></a>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="mail"></i><span
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{route('admin.permissions')}}"><i data-feather="mail"></i><span
                         class="menu-title text-truncate"
                         data-i18n="Email">{{ trans('sideBar.permissions') }}</span></a>
             </li>
@@ -31,15 +31,6 @@
                     data-feather="check-square"></i><span class="menu-title text-truncate"
                     data-i18n="Todo">{{ trans('sideBar.countries') }}</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin.governorates') }}"><i
-                    data-feather="calendar"></i><span class="menu-title text-truncate"
-                    data-i18n="Calendar">{{ trans('sideBar.governorates') }}</span></a>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin.cities') }}"><i
-                    data-feather="mail"></i><span class="menu-title text-truncate"
-                    data-i18n="Kanban">{{ trans('sideBar.cities') }}</span></a>
-        </li>
-
     </ul>
 </li>
 <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin.writers') }}"><i

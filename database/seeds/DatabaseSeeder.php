@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionTableSeeder::class);
         $this->call(SettingTableSeeder::class);
         $this->call(PartnerTableSeeder::class);
+        $this->call(ShippingAddressTableSeeder::class);
 
         
 

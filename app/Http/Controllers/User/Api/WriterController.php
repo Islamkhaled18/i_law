@@ -18,13 +18,14 @@ class WriterController extends Controller
 
         $lang = $request->header('lang');
         $list = [];
-        $writer = Writer::get();
+        $writer = Writer::with('books')->get();
         foreach ($writer as $key => $value) {
             $list[] = [
                 'id' => $value['id'],
                 'name' => $value['name_' . $lang],
                 'bio' => $value['bio'],
                 'image' => asset('storage/photos/writers/' . $value->image),
+                'books' => $value['books'],
             ];
         }
         return $this->writerApiResponse($list, 'ok', 200);
@@ -42,6 +43,7 @@ class WriterController extends Controller
                     'name' => $writer['name_' . $lang],
                     'bio' => $writer['bio'],
                     'image' => asset('storage/photos/writers/' . $writer->image),
+                    'books' => $writer['books'],
                 ];
             
             return $this->writerApiResponse($data, 'ok', 200);

@@ -5,12 +5,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Admins</h4>
+                    <h4 class="card-title">{{trans('admin.admins')}}</h4>
                 </div>
                 <div class="card-body">
                     <button wire:click="OpenAddAdminModal()" type="button" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
-                        Add new admin
+                        {{trans('admin.add_new_admin')}}
                     </button>
                 </div>
                 <div class="table-responsive">
@@ -18,12 +18,12 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>status</th>
-                                <th>Photo</th>
-                                <th>Actions</th>
+                                <th>{{trans('admin.name')}}</th>
+                                <th>{{trans('admin.email')}}</th>
+                                <th>{{trans('admin.phone')}}</th>
+                                <th>{{trans('admin.status')}}</th>
+                                <th>{{trans('admin.photo')}}</th>
+                                <th>{{trans('admin.actions')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,7 +77,7 @@
                                 </tr>
 
                             @empty
-                                <code>No Admins Here ..!!</code>
+                                <code>{{trans('admin.no_admins_Here')}} ..!!</code>
                             @endforelse
                         </tbody>
                     </table>

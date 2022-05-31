@@ -29,4 +29,8 @@ class Book extends Model
         return $this->belongsTo(Vendor::class ,'vendor_id');
     }
 
+    public function section(){
+        return $this->belongsTo(Section::class ,'section_id');
+    }
+
 }

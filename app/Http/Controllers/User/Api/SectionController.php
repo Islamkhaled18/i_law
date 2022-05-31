@@ -14,13 +14,17 @@ class SectionController extends Controller
     use SectionTrait;
 
     public function index(Request $request){
+       
         $lang = $request->header('lang');
         $list = [];
-        $section = SectionResource::collection(Section::get());
-        foreach ($section as $key => $value) {
+        $sections = Section::with('books')->get();
+        foreach ($sections as  $section) {
             $list[] = [
-                'id' => $value['id'],
-                'name' => $value['name_'.$lang]
+                'id' => $section['id'],
+                'name' => $section['name_'.$lang],
+                'parent_id' => $section['parent_id'],
+                'books' => $section['books'],
+                
             ];
         }
         return $this->SectionApiResponse($list,'ok',200);
@@ -28,15 +32,21 @@ class SectionController extends Controller
 
     }
 
-    public function show($id){
+    public function show($id,Request $request){
+        $section = Section::with('books')->find($id);
 
-        $section = Section::find($id);
+        if ($section) {
+            $lang = $request->header('lang');
+            $data = [
+                'id' => $section['id'],
+                'name' => $section['name_'.$lang],
+                'parent_id' => $section['parent_id'],
+                'books' => $section['books'],
+            ];
 
-        if($section){
-            return $this->SectionApiResponse(new SectionResource($section),'ok',200);
+            return $this->SectionApiResponse($data, 'ok', 200);
         }
-        return $this->SectionApiResponse(null,'The section Not Found',404);
-
+        return $this->SectionApiResponse(null, 'The book Not Found', 404);
     }
 
 

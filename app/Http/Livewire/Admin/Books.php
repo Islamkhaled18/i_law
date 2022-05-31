@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Book;
+use App\Models\Section;
 use App\Models\Vendor;
 use App\Models\Writer;
 use Livewire\Component;
@@ -10,19 +11,22 @@ use Livewire\Component;
 class Books extends Component
 {
     public $name_ar,$name_en,$name_fr,$desc_ar,$desc_en,$desc_fr,$index_ar,$index_en,$index_fr,
-    $writer,$vendor,$stock,$price,$offer,$type,$is_active;
+    $writer,$vendor,$stock,$price,$offer,$type,$is_active,$section;
     public $upd_name_ar,$upd_name_en,$upd_name_fr,$upd_desc_ar,$upd_desc_en,$upd_desc_fr,$upd_index_ar,$upd_index_en,$upd_index_fr,
     $upd_writer,$upd_vendor,$upd_stock,$upd_price,$upd_offer,$upd_type,$upd_is_active;
-    public $book_id;
+    public $book_id,$upd_section;
 
     protected $listeners =['sss'];
 
     public function render()
     {
         return view('livewire.admin.books',[
+
+            
             'books'=>Book::orderBy('id','asc')->paginate(5),
             'writers'=>Writer::orderBy('id','asc')->get(),
             'vendors'=>Vendor::orderBy('id','asc')->get(),
+            'sections'=>Section::orderBy('id','asc')->get(),
         ]);
     }
 
@@ -38,6 +42,7 @@ class Books extends Component
         $this->index_fr ='';
         $this->writer='';
         $this->vendor='';
+        $this->section='';
         $this->stock='';
         $this->price='';
         $this->offer='';
@@ -82,6 +87,7 @@ class Books extends Component
             'offer'=>$this->offer,
             'type'=>$this->type,
             'is_active'=>$this->is_active,
+            'section_id'=>$this->section,
         ]);
         if($save){
             $this->dispatchBrowserEvent('CloseAddBooksModal');
@@ -101,6 +107,7 @@ class Books extends Component
         $this->upd_index_fr = $info->index_fr;
         $this->upd_writer = $info->writer_id;
         $this->upd_vendor = $info->vendor_id;
+        $this->upd_section = $info->section_id;
         $this->upd_stock = $info->stock;
         $this->upd_price = $info->price;
         $this->upd_offer = $info->offer;
@@ -145,6 +152,7 @@ class Books extends Component
             'index_fr'=>$this->upd_index_fr,
             'writer_id'=>$this->upd_writer,
             'vendor_id'=>$this->upd_vendor,
+            'section_id'=>$this->upd_section,
             'stock'=>$this->upd_stock,
             'price'=>$this->upd_price,
             'offer'=>$this->upd_offer,

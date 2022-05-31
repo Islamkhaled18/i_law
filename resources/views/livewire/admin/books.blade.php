@@ -28,6 +28,7 @@
                             <th>Index FR</th>
                             <th>Writer</th>
                             <th>Vendor</th>
+                            <th>Section</th>
                             <th>Stock</th>
                             <th>Price</th>
                             <th>Offer</th>
@@ -51,6 +52,7 @@
                                     <td>{{$book->index_fr}}</td>
                                     <td>{{$book->writer->name_ar}}</td>
                                     <td>{{$book->vendor->name}}</td>
+                                    <td>{{$book->section->name_ar ?? '--'}}</td>
                                     <td>{{$book->stock}}</td>
                                     <td>{{$book->price}}</td>
                                     <td>{{$book->offer}}</td>

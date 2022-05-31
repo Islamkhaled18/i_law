@@ -2,9 +2,6 @@
 <div class="basic-modal">
     
     <!-- Modal -->
-    
-                
-
     <div class="modal fade text-start addPage" id="xlarge" tabindex="-1" aria-labelledby="myModalLabel16" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">

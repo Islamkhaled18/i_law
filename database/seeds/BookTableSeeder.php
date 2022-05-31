@@ -25,6 +25,7 @@ class BookTableSeeder extends Seeder
             'index_fr'=>'Livre primé en littérature',
             'writer_id'=>'1',
             'vendor_id'=>'1',
+            'section_id'=>'1',
             'stock'=>'50',
             'price'=>'500',
             'offer'=>'20',
