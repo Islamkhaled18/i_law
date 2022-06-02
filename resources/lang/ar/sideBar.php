@@ -10,7 +10,7 @@ return [
     'countries'=>'البلاد',
     'governorates'=>'المحافظات',
     'cities'=>'المدن',
-    'writers'=>'الكتاب',
+    'writers'=>'المؤلفين',
     'books'=>'الكتب',
     'sections'=>'الاقسام',
     'users'=>'المستخدمين',
@@ -20,6 +20,7 @@ return [
     'currencies'=>'العملات',
     'user_messages'=>'رسائل المستخدمين',
     'settings'=>'الاعدادات',
-    'partners'=>'الشركاء'
+    'partners'=>'الشركاء',
+    'shipping'=>'التوصيل',
 
 ];

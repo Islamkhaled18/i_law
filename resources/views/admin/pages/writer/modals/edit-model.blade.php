@@ -7,30 +7,30 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Edit Writer</h4>
+                    <h4 class="modal-title" id="myModalLabel1">{{ trans('admin.edit_writer') }}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Edit Writer</h5>
+                    <h5>{{ trans('admin.edit_writer') }}</h5>
                     <form wire:submit.prevent="updateWriter">
                         <input type="hidden" wire:model="writer_id">
                         <div class="form-group">
-                            <label for="">Name AR</label>
-                            <input type="text" class="form-control" placeholder="Name AR" wire:model="upd_name_ar">
+                            <label for="">{{ trans('admin.name_ar') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_ar') }}" wire:model="upd_name_ar">
                             <span class="text-danger"> @error('upd_name_ar') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Name EN</label>
-                            <input type="text" class="form-control" placeholder="Name EN" wire:model="upd_name_en">
+                            <label for="">{{ trans('admin.name_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{trans('admin.name_en')}}" wire:model="upd_name_en">
                             <span class="text-danger"> @error('upd_name_en') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Bio</label>
-                            <input type="text" class="form-control" placeholder="Bio" wire:model="upd_bio">
+                            <label for="">{{ trans('admin.bio') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.bio') }}" wire:model="upd_bio">
                             <span class="text-danger"> @error('upd_bio') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.update') }}</button>
                         </div>
                     </form>
                 </div>

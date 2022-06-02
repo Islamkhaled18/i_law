@@ -21,7 +21,7 @@ class Authenticate extends Middleware
             elseif(Request::is(app()->getLocale().'/vendor*'))
                 return route('vendor.login');
             else
-                return route('welcome');
+                return route('admin.login');
 
         }
     }

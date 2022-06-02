@@ -109,6 +109,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         return view('admin.pages.admins.profile');
     })->name('admin.profileAdmin'); //AdminProfile
 
+    Route::get('shippings',function(){
+        return view('admin.pages.shipping.index');
+    })->name('admin.shipping'); //AdminProfile
+
 
 
 

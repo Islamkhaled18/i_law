@@ -45,85 +45,85 @@
             <div class="row">
                 <div class="col-md-6 border-right-2 border-right-blue-400">
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold">Welcome Title<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.welcome_title') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="welcome_title" value="{{ $setting['welcome_title'] }}" required type="text" class="form-control" placeholder="Welcome Title">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold">Welcome subject<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.welcome_subject') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="welcome_subject" value="{{ $setting['welcome_subject'] }}" required type="text" class="form-control" placeholder="Welcome subject">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold">Content Question<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.content_question') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="content_question" value="{{ $setting['content_question'] }}" required type="text" class="form-control" placeholder="Content Question">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold">Content answer<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.content_answer') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="content_answer" value="{{ $setting['content_answer'] }}" required type="text" class="form-control" placeholder="Content answer">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Our vision <span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.our_vision') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="our_vision" value="{{ $setting['our_vision'] }}" required type="text" class="form-control" placeholder="Our vision">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Our mission<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.our_mission') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="our_mission" value="{{ $setting['our_mission'] }}" required type="text" class="form-control" placeholder="Our mission">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Address<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.address') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="address" value="{{ $setting['address'] }}" required type="text" class="form-control" placeholder="Address">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Map address link<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold">{{ trans('admin.map_address_link') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="map_addess_link" value="{{ $setting['map_addess_link'] }}" required type="text" class="form-control" placeholder="Map address link">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Email<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.email') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="email" value="{{ $setting['email'] }}" required type="text" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Phone<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.phone') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="phone" value="{{ $setting['phone'] }}" required type="text" class="form-control" placeholder="Phone">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Instagram<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.instgram') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="instgram" value="{{ $setting['instgram'] }}" required type="text" class="form-control" placeholder="Instagram">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Facebook<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.dacebook') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="facebook" value="{{ $setting['facebook'] }}" required type="text" class="form-control" placeholder="Facebook">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Youtube<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.youtube') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="youtube" value="{{ $setting['youtube'] }}" required type="text" class="form-control" placeholder="Youtube">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label font-weight-semibold"> Twiter<span class="text-danger">*</span></label>
+                        <label class="col-lg-2 col-form-label font-weight-semibold"> {{ trans('admin.twitter') }}<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input name="twitter" value="{{ $setting['twitter'] }}" required type="text" class="form-control" placeholder="Twiter">
                         </div>
@@ -133,7 +133,7 @@
                 </div>
             </div>
             <hr>
-            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">Submit</button>
+            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{ trans('admin.submit') }}</button>
         </form>
     </div>
 </div>

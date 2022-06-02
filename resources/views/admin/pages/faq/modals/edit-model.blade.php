@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">{{ trans('admin.update') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.update') }}</button>
                         </div>
                     </form>
                 </div>

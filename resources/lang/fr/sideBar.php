@@ -21,6 +21,7 @@ return [
     'user_messages'=>'Messages utilisateur',
     'settings'=>'Réglages',
     'partners'=>'les partenaires',
+    'shipping'=>'Shipping'
     
 
 ];

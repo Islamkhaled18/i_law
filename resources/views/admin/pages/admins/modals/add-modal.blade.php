@@ -59,7 +59,7 @@
                             <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

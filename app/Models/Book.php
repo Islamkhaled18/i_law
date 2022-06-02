@@ -21,6 +21,13 @@ class Book extends Model
         return $query->where('is_active',1);
     }
 
+    protected $appends = ['image_path'];
+
+    public function getImagePathAttribute(){
+        return asset('storage/' . $this->image);
+    }
+
+    
     public function writer(){
         return $this->belongsTo(Writer::class ,'writer_id');
     }

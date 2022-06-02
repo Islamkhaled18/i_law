@@ -40,7 +40,7 @@ class VendorController extends Controller
                 'company_name' => $vendor->company_name,
                 'bio' => $vendor->bio,
                 'image' => asset('storage/photos/vendors/' . $vendor->image),
-                'books' => $vendor['books'],
+                'books' => $vendor->booksApi($lang),
 
             ];
         }

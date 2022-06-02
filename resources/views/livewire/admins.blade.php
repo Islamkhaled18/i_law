@@ -1,18 +1,16 @@
 <div>
-    <br><br>
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">{{ trans('admin.admins') }}</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddAdminModal()" type="button" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.admins') }}  </h4>
+                    <button wire:click="OpenAddAdminModal()" type="button" style="margin-right: 1%" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
                         {{ trans('admin.add_new_admin') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

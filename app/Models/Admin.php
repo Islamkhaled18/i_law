@@ -32,6 +32,7 @@ class Admin extends Authenticatable
     {
         return $this->is_active == 0 ? 'notactive' : 'active';
     }
+    
 
     public function scopeActive($query)
     {
@@ -44,7 +45,7 @@ class Admin extends Authenticatable
     }
 
     public function profileAdmin(){
-        return $this->belongsTo(profileAdmin::class);
+        return $this->hasOne(profileAdmin::class,'admin_id');
     }
     
 }

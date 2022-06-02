@@ -63,11 +63,35 @@ return [
     'answer_ar'=>'Answer AR',
     'answer_en'=>'Answer EN',
     'answer_fr'=>'Answer FR',
-
-
-
-
-
-    
+    'profile'=>'Profile',
+    'remember_password_page'=>'Remember password page',
+    'roles'=>'Roles',
+    'add_new_role'=>'Add New Role',
+    'role'=>'Role',
+    'permissions'=>'Permissions',
+    'no_roles_here'=>'No roles here',
+    'edit_role'=>'Edit role',
+    'choose_the_permission'=>'Choose the permissions',
+    'add_new_writer'=>'Add new writer',
+    'no_writers_here'=>'No writers here',
+    'bio'=>'Bio',
+    'edit_writer'=>'Edit writer',
+    'welcome_title'=>'Welcome title',
+    'welcome_subject'=>'Welcome subject',
+    'content_question'=>'Question',
+    'content_answer'=>'Answer',
+    'our_vision'=>'Our vision',
+    'our_mission'=>'Our mission',
+    'address'=>'Address',
+    'map_address_link'=>'Map address link',
+    'instagram'=>'instagram',
+    'facebook'=>'facebook',
+    'youtube'=>'youtube',
+    'twiter'=>'twiter',
+    'partners'=>'Partners',
+    'partner'=>'Patner',
+    'add_new_parner'=>'Add new partner',
+    'edit_partner'=>'Edit partner',
+    'no_partners_here'=>'No partners here',
 
 ];

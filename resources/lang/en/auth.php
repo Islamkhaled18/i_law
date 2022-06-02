@@ -8,7 +8,6 @@ return [
     'please_login_to_begin_theadventure'=>'Please login to begin the adventure',
     'email'=>'Email',
     'password'=>'Password',
-    'forget_password'=>'Forget password',
     'remember_me'=>'Remember me',
     'sign_in'=>'Sign in',
 
@@ -18,6 +17,13 @@ return [
     'confirm_password'=>' Confirm Password',
     'set_new_password'=>'Set New Password',
     'back_to_login'=>'Back to login',
+    'reset_password_page'=>'Reset Password Page',
+    'forgot_password_?' =>'Forget password ?',
+    'enter_your_email_and_we_will_send_you_instructions_to_reset_your_password'=>'Enter your email and we will send you instructions to reset your password',
+    'send_reset_link'=>'Send reset link',
+    'back_to_login' =>'Back to login'
+
+
 
 
 ];

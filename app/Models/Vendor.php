@@ -10,31 +10,36 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class Vendor extends Authenticatable implements JWTSubject
 {
-    protected $guarded =[];
+    protected $guarded = [];
     protected $table = "vendors";
     protected $casts = [
         'is_active' => 'boolean',
-   ];
+    ];
 
-   public function getActive(){
-        return $this-> is_active == 0 ? 'notactive' :'active';
-   }
-   
-   public function scopeActive($query){
-        return $query->where('is_active',1);
+    public function getActive()
+    {
+        return $this->is_active == 0 ? 'notactive' : 'active';
     }
 
-    public function country(){
-        return $this->belongsTo(Country::class,'country_id');
-    }
-    public function governorate(){
-        return $this->belongsTo(Governorate::class,'governorate_id');
-    }
-    public function city(){
-        return $this->belongsTo(City::class,'city_id');
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
     }
 
-   /**
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+    public function governorate()
+    {
+        return $this->belongsTo(Governorate::class, 'governorate_id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed
@@ -56,13 +61,35 @@ class Vendor extends Authenticatable implements JWTSubject
 
     protected $appends = ['image_path'];
 
-    public function getImagePathAttribute(){
+    public function getImagePathAttribute()
+    {
         return asset('storage/' . $this->image);
     }
 
-        
-    public function books(){
+
+    public function books()
+    {
         return $this->hasMany(Book::class);
     }
 
+    public function booksApi($lang)
+    {
+        $list = [];
+        foreach ($this->books as $key => $value) {
+            $list[] = [
+                'id' => $value['id'],
+                'name' => $value['name_' . $lang],
+                'desc' => $value['desc_' . $lang],
+                'index' => $value['index_' . $lang],
+                'writer_id' => $value['writer_id'],
+                'vendor_id' => $value['vendor_id'],
+                'stock' => $value['stock'],
+                'price' => $value['price'],
+                'offer' => $value['offer'],
+                'type' => $value['type'],
+                'is_active' => $value['is_active'],
+            ];
+        }
+        return $list;
+    }
 }

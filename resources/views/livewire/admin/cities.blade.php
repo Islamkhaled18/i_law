@@ -5,11 +5,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">{{trans(admin.cities)}}</h4>
+                    <h4 class="card-title">{{trans('admin.cities')}}</h4>
                 </div>
                 <div class="card-body">
                     <button wire:click="OpenAddCitiesModal()" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
-                        {{trans(admin.add_new_city)}}
+                        {{trans('admin.add_new_city')}}
                     </button>
                 </div>
                 <div class="table-responsive">
@@ -64,7 +64,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <p>{{trans(admin.no_cities_here)}} ..!!</p>
+                                <p>{{trans('admin.no_cities_here')}} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

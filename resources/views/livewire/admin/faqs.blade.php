@@ -4,15 +4,13 @@
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header justify-content-start">
                     <h4 class="card-title">{{ trans('admin.faqs') }}</h4>
-                </div>
-                <div class="card-body">
-                    
-                    <button type="button" wire:click="OpenAddFAQModal()" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#xlarge">
+                    <button type="button" style="margin-right: 1%" wire:click="OpenAddFAQModal()" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#xlarge">
                         {{ trans('admin.add_new_faq') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

@@ -169,6 +169,7 @@ Route::group(['prefix' => 'shippingAddress'], function () {
 
     Route::get('/shippingAddresses', [ShippingAddressController::class, 'index']);
     Route::get('/shippingAddress/{id}', [ShippingAddressController::class, 'show']);
+    Route::post('/shippingAddress', [ShippingAddressController::class, 'store']);
 });
 // shippingAddress ///
 /// order ///

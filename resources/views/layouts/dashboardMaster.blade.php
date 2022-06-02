@@ -61,13 +61,14 @@
     @livewireStyles
 
 
+
 </head>
 
 <style>
     body {
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Cairo', sans-serif !important;
 
-            {
+    }
 
 </style>
 <!-- END: Head-->
@@ -235,8 +236,8 @@
                                 height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a
-                            class="dropdown-item" href="{{route('admin.profileAdmin')}}"><i class="me-50"
-                                data-feather="user"></i> Profile</a>
+                            class="dropdown-item" href="{{ route('admin.profileAdmin') }}"><i
+                                class="me-50" data-feather="user"></i> Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('admin.logout') }}">
                             <i class="me-50" data-feather="power"></i> Logout

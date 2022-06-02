@@ -20,7 +20,8 @@ return [
     'currencies'=>'Currencies',
     'user_messages'=>'User Messages',
     'settings'=>'Settings',
-    'partners'=>'Partners'
+    'partners'=>'Partners',
+    'shipping'=>'Shipping',
 
 
 

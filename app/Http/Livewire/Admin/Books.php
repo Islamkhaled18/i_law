@@ -15,6 +15,7 @@ class Books extends Component
     public $upd_name_ar,$upd_name_en,$upd_name_fr,$upd_desc_ar,$upd_desc_en,$upd_desc_fr,$upd_index_ar,$upd_index_en,$upd_index_fr,
     $upd_writer,$upd_vendor,$upd_stock,$upd_price,$upd_offer,$upd_type,$upd_is_active;
     public $book_id,$upd_section;
+    
 
     protected $listeners =['sss'];
 

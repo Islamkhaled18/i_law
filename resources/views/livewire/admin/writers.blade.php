@@ -1,28 +1,27 @@
 <div>
-    <br><br>
+   
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Writers</h4>
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title ">{{ trans('sideBar.writers') }}</h4>
+                    <button wire:click="OpenAddWritersModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary"
+                    data-bs-toggle="modal" data-bs-target="#default">
+                    {{ trans('admin.add_new_writer') }}
+                </button>
                 </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddWritersModal()" type="button" class="btn btn-outline-primary"
-                        data-bs-toggle="modal" data-bs-target="#default">
-                        Add new Writer
-                    </button>
-                </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name AR</th>
-                                <th>Name EN</th>
-                                <th>Photo</th>
+                                <th>{{ trans('admin.name_ar') }}</th>
+                                <th>{{ trans('admin.name_en') }}</th>
+                                <th>{{ trans('admin.image') }}</th>
 
-                                <th>Actions</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,7 +79,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Wtiters Here ..!!</code>
+                                <p>{{ trans('admin.no_writers_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

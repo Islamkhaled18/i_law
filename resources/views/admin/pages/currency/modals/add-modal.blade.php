@@ -45,7 +45,7 @@
                             <span class="text-danger"> @error('excange_value') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">{{ trans('admin.submit') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.submit') }}</button>
                         </div>
                     </form>
                 </div>

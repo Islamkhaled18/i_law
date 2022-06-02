@@ -90,5 +90,10 @@
             data-i18n="Chat">{{ trans('sideBar.partners') }}</span></a>
 </li>
 
+<li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin.shipping') }}"><i
+            class="fa-solid fa-handshake"></i></i><span class="menu-title text-truncate"
+            data-i18n="Chat">{{ trans('sideBar.shipping') }}</span></a>
+</li>
+
 
 </ul>

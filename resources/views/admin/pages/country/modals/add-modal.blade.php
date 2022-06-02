@@ -50,7 +50,7 @@
                           <span class="text-danger"> @error('currency') {{ $message }}@enderror</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.submit') }}</button>
                         </div>
                     </form>
                 </div>

@@ -35,6 +35,7 @@ class CreateBooksTable extends Migration
             $table->decimal('offer')->nullable();
             $table->string('type')->comment('hard or PDF');
             $table->boolean('is_active');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

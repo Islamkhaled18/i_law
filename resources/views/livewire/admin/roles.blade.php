@@ -4,23 +4,22 @@
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Roles</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddRolesModal()" type="button" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.roles') }}</h4>
+                    <button wire:click="OpenAddRolesModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
-                        Add new Roles
+                        {{ trans('admin.add_new_role') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Role</th>
-                                <th>Permissions</th>
-                                <th>Actions</th>
+                                <th>{{ trans('admin.role') }}</th>
+                                <th>{{ trans('admin.permissions') }}</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +61,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Roles Here ..!!</code>
+                                <p>{{ trans('admin.no_roles_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

@@ -4,23 +4,22 @@
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Partners</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddPartnersModal()" type="button" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.partners') }}</h4>
+                    <button wire:click="OpenAddPartnersModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
-                        Add new partner
+                        {{ trans('admin.add_new_partner') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Photo</th>
-                                <th>Actions</th>
+                                <th>{{ trans('admin.name') }}</th>
+                                <th>{{ trans('admin.image') }}</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +63,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Wtiters Here ..!!</code>
+                                <p>{{ trans('admin.no_partners_here') }}..!!</p>
                             @endforelse
                         </tbody>
                     </table>
