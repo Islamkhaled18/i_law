@@ -38,7 +38,7 @@
                                 </td>
                                 <td>
                                     @if ($profile->admin->image === null)
-                                        <img src="https://ui-avatars.com/api/?background=random&name={{ $profile->admin->name ?? '--' }}"
+                                        <img src="{{asset('assets/admin/images/avatars/2.png')}}" height="40" width="40"
                                             id="blah" alt="your image">
                                     @else
                                         <span class="avatar"><img class="round" <img

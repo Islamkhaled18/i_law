@@ -34,21 +34,21 @@ class loginController extends Controller
     
         
         if (auth()->guard('vendor')->attempt($request->only($login_type, 'password'))) {
-            return redirect()->intended('/vendor');
+            return redirect()->to('/vendor');
         }
     
         return redirect()->back()
-            ->withInput()
-            ->withErrors([
-                'login' => 'These credentials do not match our records.',
-            ]);
+                ->withInput()
+                ->withErrors([
+                    'login' => 'These credentials do not match our records.',
+                ]);
 
     }// end of login to dashboard route
 
     public function logout()
     {
-        $gaurd = $this->getGaurd();
-        $gaurd->logout();
+        // $gaurd = $this->getGaurd();
+        auth()->guard('vendor')->logout();
         return redirect()->route('vendor.login');
     }// end of loOut route
 

@@ -47,7 +47,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css-rtl/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('sweetalert2/sweetalert2.min.css') }}">
-
+    @toastr_css
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
@@ -59,8 +59,6 @@
 
     <!-- END: Custom CSS-->
     @livewireStyles
-
-
 
 </head>
 
@@ -230,10 +228,19 @@
                         aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span
                                 class="user-name fw-bolder">{{ auth()->user()->name }}</span><span
-                                class="user-status">{{ auth()->user()->name }}</span></div><span
-                            class="avatar"><img class="round"
-                                src="{{ url('storage/admins/photos/' . auth()->user()->image) }}" alt="avatar"
-                                height="40" width="40"><span class="avatar-status-online"></span></span>
+                                class="user-status">{{ auth()->user()->name }}</span></div>
+                                @if (auth()->user()->image === null)
+                                <img src="{{asset('assets/admin/images/avatars/2.png')}}"
+                                    id="blah" height="40" width="40" alt="your image">
+                            @else
+                                <span class="avatar"><img class="round" <img
+                                        src="{{ url('storage/photos/admins') }}/{{ auth()->user()->image }}"
+                                        alt="avatar" height="40" width="40">
+                                    <span class="avatar-status-online"></span>
+                                </span>
+                            @endif
+                            
+                            </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a
                             class="dropdown-item" href="{{ route('admin.profileAdmin') }}"><i
@@ -438,6 +445,14 @@
             </div>
         </div>
     </div>
+
+    <!-- END: Page JS-->
+    <script src="{{ asset('assets/admin/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    @jquery
+    @toastr_js
+    @toastr_render
     <!-- END: Content-->
 
     <div class="sidenav-overlay"></div>
@@ -445,11 +460,10 @@
 
     <!-- BEGIN: Footer-->
     <footer class="footer footer-static footer-light">
-        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
-                    class="ms-25" href="https://1.envato.market/pixinvent_portfolio"
-                    target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights
-                    Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i
-                    data-feather="heart"></i></span></p>
+        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25"><a
+                    class="ms-25" href="https://technomasr.com/"
+                    target="_blank">{{ trans('sideBar.execution_of_techno_misr_software_company') }}</a>
+                    <span class="d-none d-sm-inline-block">, {{ trans('sideBar.all_rights_reserved') }}</span></span><span class="float-md-end d-none d-md-block"></span></p>
     </footer>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
@@ -471,11 +485,7 @@
 
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('assets/admin/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
-    <!-- END: Page JS-->
-    <script src="{{ asset('assets/admin/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    
     <script>
         $(window).on('load', function() {
             if (feather) {
@@ -547,6 +557,7 @@
 
 
     @yield('scripts')
+    
 </body>
 <!-- END: Body-->
 

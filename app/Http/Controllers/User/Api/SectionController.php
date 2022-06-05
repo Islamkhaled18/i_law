@@ -23,7 +23,7 @@ class SectionController extends Controller
                 'id' => $section['id'],
                 'name' => $section['name_'.$lang],
                 'parent_id' => $section['parent_id'],
-                'books' => $section['books'],
+                'books' => $section->booksApi($lang),
                 
             ];
         }
@@ -41,7 +41,7 @@ class SectionController extends Controller
                 'id' => $section['id'],
                 'name' => $section['name_'.$lang],
                 'parent_id' => $section['parent_id'],
-                'books' => $section['books'],
+                'books' => $section->booksApi($lang),
             ];
 
             return $this->SectionApiResponse($data, 'ok', 200);

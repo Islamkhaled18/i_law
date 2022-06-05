@@ -29,6 +29,12 @@
                             <input type="text" class="form-control" placeholder="{{ trans('admin.bio') }}" wire:model="upd_bio">
                             <span class="text-danger"> @error('upd_bio') {{ $message }}@enderror</span>
                         </div>
+                        <div class="form-group">
+                            <label for="">{{ trans('admin.image') }}</label>
+                            <input type="file" id="image" name="image" accept="image" class="form-control" wire:model="image">
+                            <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">{{ trans('admin.update') }}</button>
                         </div>

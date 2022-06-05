@@ -19,22 +19,33 @@ class CountyController extends Controller
 
         $lang = $request->header('lang');
         $list = [];
-        $country = CountryResource::collection(Country::get());
+        $country = Country::get();
         foreach ($country as $key => $value) {
             $list[] = [
                 'id' => $value['id'],
-                'name' => $value['name_'.$lang]
+                'name' => $value['name_'.$lang],
+                'country_code' => $value['country_code'],
+                'country_phone_code' => $value['country_phone_code'],
             ];
         }
         return $this->countryApiResponse($list,'ok',200);
     }
 
-    public function show($id){
+    public function show($id,Request $request){
 
         $country = Country::find($id);
 
         if($country){
-            return $this->countryApiResponse(new CountryResource($country),'ok',200);
+            $lang = $request->header('lang');
+            $data = [
+                'id' => $country['id'],
+                'name' => $country['name_' . $lang],
+                'code' => $country['country_code'],
+                'is_active' => $country['country_phone_code'],
+            ];
+
+            return $this->countryApiResponse($data, 'ok', 200);
+
         }
         return $this->countryApiResponse(null,'The country Not Found',404);
 

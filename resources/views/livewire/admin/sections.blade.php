@@ -1,16 +1,13 @@
 <div>
-    <br><br>
     <!-- Striped rows start -->
     @if(!$showSubSection)
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Sections</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddSectionsModal()" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
-                        Add new Section
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.sections') }}</h4>
+                    <button wire:click="OpenAddSectionsModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
+                        {{ trans('admin.add_new_section') }}
                     </button>
                 </div>
                 <div class="table-responsive">
@@ -18,11 +15,11 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name AR</th>
-                            <th>Name EN</th>
-                            <th>Name FR</th>
-                            <th>Sub Sections</th>
-                            <th>Actions</th>
+                            <th>{{ trans('admin.name_ar') }}</th>
+                            <th>{{ trans('admin.name_en') }}</th>
+                            <th>{{ trans('admin.name_en') }}</th>
+                            <th>{{ trans('admin.sub_sections') }}</th>
+                            <th>{{ trans('admin.actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -73,7 +70,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Sections Here ..!!</code>
+                                <p>{{ trans('admin.no_sections_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

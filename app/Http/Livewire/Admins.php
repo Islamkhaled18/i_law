@@ -4,6 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Admin;
+use App\Models\profileAdmin;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
 class Admins extends Component
@@ -14,7 +18,7 @@ class Admins extends Component
     public $name,$email,$user_name,$password,$phone,$is_active,$default_language='Arabic';
     public $upd_name,$upd_email,$upd_user_name,$upd_password,$admin_id,$upd_status ,$upd_phone ,$upd_is_active;
     protected $listeners =['delete'];
-    public $image;
+    public $image, $upd_image;
 
     public function render()
     {
@@ -42,7 +46,6 @@ class Admins extends Component
             'password'=>'required',
             'phone'=>'required',
             'is_active'=>'required',
-            'default_language'=>'required', 
             'image'=>'required', 
         ]);
 
@@ -57,10 +60,15 @@ class Admins extends Component
             'image'=>$this->image->hashName()
         ]);
 
+
         if (!empty($this->image)){
      
             $this->image->store('photos/admins','public');
         }
+
+        toastr()->success('Data has been saved successfully!');
+
+        $save->profileAdmin()->save(new profileAdmin());
 
         if($save){
             $this->dispatchBrowserEvent('CloseAddAdminModal');
@@ -76,6 +84,7 @@ class Admins extends Component
         $this->upd_is_active = $info->is_active;
         $this->upd_phone = $info->phone;
         $this->upd_default_language = $info->default_language;
+        $this->upd_image = $info->image;
         $this->admin_id = $info->id;
         $this->dispatchBrowserEvent('OpenEditAdminModal',[
             'id'=>$id
@@ -91,9 +100,10 @@ class Admins extends Component
             'upd_password'=>'required',
             'upd_is_active'=>'required',
             'upd_phone'=>'required',
-            'upd_default_language'=>'required'
+            
 
         ]);
+
 
         $update = Admin::find($admin_id)->update([
             'name'=>$this->upd_name,
@@ -102,8 +112,36 @@ class Admins extends Component
             'is_active'=>$this->upd_is_active,
             'default_language'=>$this->upd_default_language,
             'phone'=>$this->upd_phone,
-            'password'=>$this->upd_password
+            'password'=>$this->upd_password,
+            'image'=>$this->image->hashName()
         ]);
+
+        $dt = Carbon::now();
+        $todayDate = $dt->toDayDateTimeString();
+
+        $activityLog =
+        [
+            'name'=>$this->upd_name,
+            'email'=>$this->upd_email,
+            'user_name'=>$this->upd_user_name,
+            'is_active'=>$this->upd_is_active,
+            'default_language'=>$this->upd_default_language,
+            'phone'=>$this->upd_phone,
+            'password'=>$this->upd_password,
+            'image'=>$this->image->hashName(),
+            'date_time'=>$todayDate
+        ];
+
+        DB::table('admin_activity_logs')->insert($activityLog);
+
+
+        // if(Storage::exists($this->image)){
+        //     unlink($this->image);
+        // }
+
+        $this->image->store('photos/admins','public');
+
+        
 
         if($update){
             $this->dispatchBrowserEvent('CloseEditAdminModal');
@@ -122,6 +160,9 @@ class Admins extends Component
 
     public function delete($id){
         $del =  Admin::find($id)->delete();
+        // if (auth()->user()->image){
+        //     Storage::delete('/public/images/'.auth()->user()->image);
+        //   }
         if($del){
             $this->dispatchBrowserEvent('deleted');
         }

@@ -36,8 +36,8 @@
                                     </td>
                                     <td>
                                         @if ($admin->image === null)
-                                            <img src="https://ui-avatars.com/api/?background=random&name={{ $admin->name ?? '--' }}"
-                                                id="blah" alt="your image">
+                                            <img src="{{asset('assets/admin/images/avatars/2.png')}}"
+                                                id="blah" height="40" width="40" alt="your image">
                                         @else
                                             <span class="avatar"><img class="round" <img
                                                     src="{{ url('storage/photos/admins') }}/{{ $admin->image }}"
@@ -51,7 +51,7 @@
                                         <div class="d-flex justify-content-center">
                                             {{-- Begin: Edit button --}}
 
-                                            <button wire:click="OpenEditAdminModal({{ $admin->id }})"
+                                            <button wire:click= "OpenEditAdminModal({{ $admin->id }})"
                                                 data-bs-toggle="modal" data-bs-target="#updateOrCreate" type="button"
                                                 class="btn btn-sm btn-icon btn-info" style="margin-inline: .2rem">
                                                 <i class="fas fa-pen"></i>
@@ -61,7 +61,7 @@
 
                                             {{-- Begin: delete button --}}
 
-                                            <button wire:click="wire:click=" deleteConfirm({{ $admin->id }})""
+                                            <button wire:click="deleteConfirm({{ $admin->id }})"
                                                 type="button" class="btn btn-sm btn-icon btn-danger"
                                                 data-bs-toggle="modal" data-bs-target="#delete">
                                                 <i class="fas fa-trash-alt"></i>
@@ -88,6 +88,7 @@
 
 @section('scripts')
     <script>
+        
         window.addEventListener('OpenAddAdminModal', function() {
             $('.addAdmin').find('span').html('');
             $('.addAdmin').find('form')[0].reset();
@@ -95,10 +96,11 @@
         });
 
         window.addEventListener('CloseAddAdminModal', function() {
+            alert('gfg');
             $('.addAdmin').find('span').html('');
             $('.addAdmin').find('form')[0].reset();
-            $('.addAdmin').modal('hide');
-            alert('New Admin Has been Saved Successfully');
+            $('#default').modal('hide');
+            toastr()->success('Data has been saved successfully!');
         });
 
         window.addEventListener('OpenEditAdminModal', function(event) {

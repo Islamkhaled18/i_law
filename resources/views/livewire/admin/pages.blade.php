@@ -4,24 +4,22 @@
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Pages</h4>
-                </div>
-                <div class="card-body">
-
-                    <button type="button" wire:click="OpenAddPageModal()" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.pages') }}</h4>
+                    <button type="button" wire:click="OpenAddPageModal()" style="margin-right: 1%" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#xlarge">
-                        Add new Page
+                        {{ trans('admin.add_new_page') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name AR</th>
-                                <th>Name EN</th>
-                                <th>Actions</th>
+                                <th>{{ trans('admin.name_ar') }}</th>
+                                <th>{{ trans('admin.name_en') }}</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +56,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Pages Here ..!!</code>
+                                <p>{{ trans('admin.no_pages_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

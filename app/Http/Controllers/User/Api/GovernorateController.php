@@ -26,8 +26,7 @@ class GovernorateController extends Controller
         }
         return $this->governorateApiResponse($list,'ok',200);
 
-        // $governorate = GovenorateResource::collection(Governorate::get());
-        // return $this->governorateApiResponse($governorate,'ok',200);
+     
 
     }
 

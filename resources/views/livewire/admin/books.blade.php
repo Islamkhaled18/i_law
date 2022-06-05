@@ -1,41 +1,38 @@
 <div>
-    <br><br>
-    <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Books</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddBooksModal()" type="button" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.books') }}</h4>
+                    <button wire:click="OpenAddBooksModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
-                        Add new Book
+                        {{ trans('admin.add_new_book') }}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name AR</th>
-                                <th>Name EN</th>
-                                <th>Name FR</th>
-                                <th>Decription AR</th>
-                                <th>Decription EN</th>
-                                <th>Decription FR</th>
-                                <th>Index AR</th>
-                                <th>Index en</th>
-                                <th>Index FR</th>
-                                <th>Writer</th>
-                                <th>Vendor</th>
-                                <th>Section</th>
-                                <th>Stock</th>
-                                <th>Price</th>
-                                <th>Offer</th>
-                                <th>Type</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>{{ trans('admin.name_ar') }}</th>
+                                <th>{{ trans('admin.name_en') }}</th>
+                                <th>{{ trans('admin.name_fr') }}</th>
+                                <th>{{ trans('admin.description_ar') }}</th>
+                                <th>{{ trans('admin.description_en') }}</th>
+                                <th>{{ trans('admin.description_fr') }}</th>
+                                <th>{{ trans('admin.index_ar') }}</th>
+                                <th>{{ trans('admin.index_ar') }}</th>
+                                <th>{{ trans('admin.index_ar') }}</th>
+                                <th>{{ trans('sideBar.writers') }}</th>
+                                <th>{{ trans('admin.vendor') }}</th>
+                                <th>{{ trans('admin.section') }}</th>
+                                <th>{{ trans('admin.section') }}</th>
+                                <th>{{ trans('admin.price') }}</th>
+                                <th>{{ trans('admin.offer') }}</th>
+                                <th>{{ trans('admin.type') }}</th>
+                                <th>{{ trans('admin.status') }}</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,6 +56,7 @@
                                     <td>{{ $book->offer }}</td>
                                     <td>{{ $book->type }}</td>
                                     <td>{{ $book->getActive() }}</td>
+                                   
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             {{-- Begin: Edit button --}}
@@ -86,7 +84,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Books Here ..!!</code>
+                                <p>{{ trans('admin.no_books_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

@@ -74,7 +74,7 @@
                             <div class="card-body">
                                 <div class="w-2 my-auto text-center"><img class="img-fluid"
                                         src="{{ asset('assets/admin/images/logo/1.png') }}" alt="avatar" width="90%">
-                                    <a href="index.html" class="brand-logo">
+                                    <a href="https://ilawdemo.technomasrsystems.com/" class="brand-logo">
 
                                         <h2 class="brand-text w-75 text-primary ms-1">
                                             {{ trans('auth.website_dashboard') }}

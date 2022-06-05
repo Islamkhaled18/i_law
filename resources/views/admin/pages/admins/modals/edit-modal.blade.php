@@ -64,7 +64,7 @@
                             wire:model="upd_is_active"
                             id="switcheryColor4"
                             class="switchery" data-color="success"
-                            @if($admin-> is_active == 1)checked @endif/>
+                            @if($admin->is_active == 1)checked @endif/>
 
                             <span class="text-danger"> @error('upd_is_active') {{ $message }}@enderror</span>
                         </div>
@@ -77,6 +77,12 @@
                                 @enderror
                             </span>
                         </div>
+                        <div class="form-group">
+                            <label for="">{{ trans('admin.image') }}</label>
+                            <input type="file" id="image" name="image" accept="image" class="form-control" wire:model="image">
+                            <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>

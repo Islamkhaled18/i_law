@@ -7,6 +7,7 @@ use App\Models\Section;
 use App\Models\Vendor;
 use App\Models\Writer;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Books extends Component
 {
@@ -16,6 +17,8 @@ class Books extends Component
     $upd_writer,$upd_vendor,$upd_stock,$upd_price,$upd_offer,$upd_type,$upd_is_active;
     public $book_id,$upd_section;
     
+    use WithFileUploads;
+    public $image, $upd_image;
 
     protected $listeners =['sss'];
 
@@ -70,6 +73,7 @@ class Books extends Component
             'type'=>'required',
             'is_active'=>'required',
         ]);
+     
 
         $save = Book::create([
             'name_ar'=>$this->name_ar,
@@ -89,7 +93,15 @@ class Books extends Component
             'type'=>$this->type,
             'is_active'=>$this->is_active,
             'section_id'=>$this->section,
+            'image'=>$this->image->hashName()
+        
         ]);
+
+        if (!empty($this->image)){
+     
+            $this->image->store('photos/books','public');
+        }
+
         if($save){
             $this->dispatchBrowserEvent('CloseAddBooksModal');
         }

@@ -80,7 +80,10 @@ class Writers extends Component
             'name_ar'=>$this->upd_name_ar,
             'name_en'=>$this->upd_name_en,
             'bio'=>$this->upd_bio,
+            'image'=>$this->image->hashName()
         ]);
+        $this->image->store('photos/writers','public');
+        
         if($update){
             $this->dispatchBrowserEvent('CloseEditWriterModal');
         }

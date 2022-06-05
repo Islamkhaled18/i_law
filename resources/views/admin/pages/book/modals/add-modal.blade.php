@@ -6,62 +6,62 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Add new Book</h4>
+                    <h4 class="modal-title" id="myModalLabel1">{{ trans('admin.add_new_book') }}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Add new Book</h5>
+                    <h5>{{ trans('admin.add_new_book') }}</h5>
                     <form wire:submit.prevent="saveBook">
                         <div class="form-group">
-                            <label for="">Name AR</label>
-                            <input type="text" class="form-control" placeholder="Name AR" wire:model="name_ar">
+                            <label for="">{{ trans('admin.name_ar') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_ar') }}" wire:model="name_ar">
                             <span class="text-danger"> @error('name_ar') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Name EN</label>
-                            <input type="text" class="form-control" placeholder="Name EN" wire:model="name_en">
+                            <label for="">{{ trans('admin.name_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_en') }}" wire:model="name_en">
                             <span class="text-danger"> @error('name_en') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Name FR</label>
-                            <input type="text" class="form-control" placeholder="Name FR" wire:model="name_fr">
+                            <label for="">{{ trans('admin.name_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_en') }}" wire:model="name_fr">
                             <span class="text-danger"> @error('name_fr') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Description AR</label>
-                            <input type="text" class="form-control" placeholder="Description AR" wire:model="desc_ar">
+                            <label for="">{{ trans('admin.description_ar') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.description_ar') }}" wire:model="desc_ar">
                             <span class="text-danger"> @error('desc_ar') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Description EN</label>
-                            <input type="text" class="form-control" placeholder="Description EN" wire:model="desc_en">
+                            <label for="">{{ trans('admin.description_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.description_en') }}" wire:model="desc_en">
                             <span class="text-danger"> @error('desc_en') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Description FR</label>
-                            <input type="text" class="form-control" placeholder="Description FR" wire:model="desc_fr">
+                            <label for="">{{ trans('admin.description_fr') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.description_fr') }}" wire:model="desc_fr">
                             <span class="text-danger"> @error('desc_fr') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Index AR</label>
-                            <input type="text" class="form-control" placeholder="Index AR" wire:model="index_ar">
+                            <label for="">{{ trans('admin.index_ar') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.index_ar') }}" wire:model="index_ar">
                             <span class="text-danger"> @error('index_ar') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Index EN</label>
-                            <input type="text" class="form-control" placeholder="Index EN" wire:model="index_en">
+                            <label for="">{{ trans('admin.index_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.index_en') }}" wire:model="index_en">
                             <span class="text-danger"> @error('index_en') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Index FR</label>
-                            <input type="text" class="form-control" placeholder="Index FR" wire:model="index_fr">
+                            <label for="">{{ trans('admin.index_fr') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.index_fr') }}" wire:model="index_fr">
                             <span class="text-danger"> @error('index_fr') {{ $message }}@enderror</span>
                         </div>
                            
                         <div class="form-group">
-                            <label for="">Writer</label>
+                            <label for="">{{ trans('admin.writer') }}</label>
                             <select class="form-control" wire:model="writer">
-                                <option disabled value="">Choose the Writer</option>
+                                <option disabled value="">{{ trans('admin.choose_the_writer') }}</option>
                                 @foreach ($writers as $writer)
                                     <option value="{{ $writer->id }}">{{ $writer->name_ar }}</option>
                                 @endforeach
@@ -69,9 +69,9 @@
                           <span class="text-danger"> @error('writer') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Vendor</label>
+                            <label for="">{{ trans('admin.vendor') }}</label>
                             <select class="form-control" wire:model="vendor">
-                                <option disabled value="">Choose the Vendor</option>
+                                <option disabled value="">{{ trans('admin.choose_the_vendor') }}</option>
                                 @foreach ($vendors as $vendor)
                                     <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
                                 @endforeach
@@ -79,9 +79,9 @@
                           <span class="text-danger"> @error('vendor') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Section</label>
+                            <label for="">{{ trans('admin.section') }}</label>
                             <select class="form-control" wire:model="section">
-                                <option disabled value="">Choose the section</option>
+                                <option disabled value="">{{ trans('admin.choose_the_section') }}</option>
                                 @foreach ($sections as $section)
                                     <option value="{{ $section->id }}">{{ $section->name_ar }}</option>
                                 @endforeach
@@ -90,33 +90,38 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">stock</label>
-                            <input type="text" class="form-control" placeholder="stock" wire:model="stock">
+                            <label for="">{{ trans('admin.stock') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.stock') }}" wire:model="stock">
                             <span class="text-danger"> @error('stock') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">price</label>
-                            <input type="text" class="form-control" placeholder="price" wire:model="price">
+                            <label for="">{{ trans('admin.price') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.price') }}" wire:model="price">
                             <span class="text-danger"> @error('price') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">offer</label>
-                            <input type="text" class="form-control" placeholder="offer" wire:model="offer">
+                            <label for="">{{ trans('admin.offer') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.offer') }}" wire:model="offer">
                             <span class="text-danger"> @error('offer') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Type</label>
-                            <input type="text" class="form-control" placeholder="Type" wire:model="type">
+                            <label for="">{{ trans('admin.type') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.type') }}" wire:model="type">
                             <span class="text-danger"> @error('type') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Status</label>
+                            <label for="">{{ trans('admin.status') }}</label>
                              <input type="checkbox" value="1" wire:model="is_active" class="switchery" data-color="success" checked />
                             <span class="text-danger"> @error('is_active') {{ $message }}@enderror</span>
                         </div>
+                        <div class="form-group">
+                            <label for="">{{ trans('admin.image') }}</label>
+                            <input type="file" id="image" name="image" accept="image" class="form-control" wire:model="image">
+                            <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
+                        </div>
                         
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.status') }}</button>
                         </div>
                     </form>
                 </div>

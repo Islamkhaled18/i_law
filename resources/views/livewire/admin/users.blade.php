@@ -1,30 +1,26 @@
 <div>
-    <br><br>
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Users</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddUsersModal()" type="button" class="btn btn-outline-primary"
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.users') }}</h4>
+                    <button wire:click="OpenAddUsersModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary"
                         data-bs-toggle="modal" data-bs-target="#default">
-                        Add new User
+                        {{ trans('admin.add_new_users') }}
                     </button>
                 </div>
-
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                                <th>Shippng_address</th>
-                                <th>Actions</th>
+                                <th>{{ trans('admin.name') }}</th>
+                                <th>{{ trans('admin.phone') }}</th>
+                                <th>{{ trans('admin.email') }}</th>
+                                <th>{{ trans('admin.status') }}</th>
+                                <th>{{ trans('admin.shippng_address') }}</th>
+                                <th>{{ trans('admin.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,15 +63,12 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Users Here ..!!</code>
+                                <p>{{ trans('admin.no_users_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>
-
                     @include('admin.pages.user.modals.add-modal')
                     @include('admin.pages.user.modals.edit-model')
-
-
                 </div>
             </div>
         </div>

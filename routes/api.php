@@ -97,7 +97,7 @@ Route::group(['prefix' => 'writer'], function () {
 });
 // writer ///
 
-/// writer ///
+/// vendors ///
 Route::group(['prefix' => 'vendors'], function () {
 
     Route::get('/vendors', [VendorController::class, 'index']);
@@ -106,9 +106,7 @@ Route::group(['prefix' => 'vendors'], function () {
     Route::put('/vendor/{id}', [VendorController::class, 'update']);
     Route::post('/vendor/{id}', [VendorController::class, 'destroy']);
 });
-// writer ///
-
-
+// vendors ///
 
 /// Contact ///
 Route::group(['prefix' => 'Contact'], function () {
@@ -121,7 +119,7 @@ Route::group(['prefix' => 'Contact'], function () {
 // Contact ///
 
 
-/// writer ///
+/// sections ///
 Route::group(['prefix' => 'sections'], function () {
 
     Route::get('/sections', [SectionController::class, 'index']);
@@ -130,7 +128,7 @@ Route::group(['prefix' => 'sections'], function () {
     Route::put('/section/{id}', [SectionController::class, 'update']);
     Route::post('/section/{id}', [SectionController::class, 'destroy']);
 });
-// writer ///
+// sections ///
 
 
 /// partner ///

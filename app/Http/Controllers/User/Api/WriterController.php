@@ -18,16 +18,14 @@ class WriterController extends Controller
 
         $lang = $request->header('lang');
         $list = [];
-        $writer = Writer::with('books')->get();
-        return $writer;
-        
+        $writer = Writer::with('books')->get();        
         foreach ($writer as $key => $value) {
             $list[] = [
                 'id' => $value['id'],
                 'name' => $value['name_' . $lang],
                 'bio' => $value['bio'],
                 'image' => asset('storage/photos/writers/' . $value->image),
-                'books' => $value['books'],
+                'books' => $value->booksApi($lang),
             ];
         }
         return $this->writerApiResponse($list, 'ok', 200);
@@ -36,18 +34,18 @@ class WriterController extends Controller
     public function show($id,Request $request)
     {
 
-        $writer = Writer::find($id);
+        $writer = Writer::with('books')->find($id);
 
         if ($writer) {
-            $lang = $request->header('lang');            
-                $data = [
-                    'id' => $writer['id'],
+            $lang = $request->header('lang');
+            $data = [
+                'id' => $writer['id'],
                     'name' => $writer['name_' . $lang],
                     'bio' => $writer['bio'],
                     'image' => asset('storage/photos/writers/' . $writer->image),
-                    'books' => $writer['books'],
-                ];
-            
+                'books' => $writer->booksApi($lang),
+            ];
+
             return $this->writerApiResponse($data, 'ok', 200);
         }
         return $this->writerApiResponse(null, 'The writer Not Found', 404);

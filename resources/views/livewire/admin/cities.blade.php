@@ -4,14 +4,13 @@
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header justify-content-start">
                     <h4 class="card-title">{{trans('admin.cities')}}</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddCitiesModal()" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
+                    <button wire:click="OpenAddCitiesModal()" style="margin-right: 1%"  type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
                         {{trans('admin.add_new_city')}}
                     </button>
                 </div>
+                
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

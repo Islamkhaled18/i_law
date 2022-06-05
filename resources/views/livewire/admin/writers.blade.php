@@ -33,7 +33,7 @@
 
                                     <td>
                                         @if ($writer->image === null)
-                                        <img src="https://ui-avatars.com/api/?background=random&name={{ $writer->name_ar ?? '--' }}"
+                                        <img src="{{asset('assets/admin/images/avatars/2.png')}}" height="40" width="40"
                                         id="blah" alt="your image">
 
                                         @else

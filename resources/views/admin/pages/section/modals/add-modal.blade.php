@@ -6,34 +6,34 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Add new Section</h4>
+                    <h4 class="modal-title" id="myModalLabel1">{{ trans('admin.add_new_section') }}</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Add new Section</h5>
+                    <h5>{{ trans('admin.add_new_section') }}</h5>
                     <form wire:submit.prevent="saveSection">
                         <div class="form-group">
-                            <label for="">Name AR</label>
-                            <input type="text" class="form-control" placeholder="Name AR" wire:model="name_ar">
+                            <label for="">{{ trans('admin.name_ar') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_ar') }}" wire:model="name_ar">
                             <span class="text-danger"> @error('name_ar') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Name EN</label>
-                            <input type="text" class="form-control" placeholder="Name EN" wire:model="name_en">
+                            <label for="">{{ trans('admin.name_en') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_en') }}" wire:model="name_en">
                             <span class="text-danger"> @error('name_en') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="">Name Fr</label>
-                            <input type="text" class="form-control" placeholder="name_fr" wire:model="name_fr">
+                            <label for="">{{ trans('admin.name_fr') }}</label>
+                            <input type="text" class="form-control" placeholder="{{ trans('admin.name_fr') }}" wire:model="name_fr">
                             <span class="text-danger"> @error('name_fr') {{ $message }}@enderror</span>
                         </div>
                     
     
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Select parent Section*</label>
+                                <label>{{ trans('admin.select_main_section') }}*</label>
                                 <select type="text" wire:model="parent_id" class="form-control">
-                                    <option value="">None</option>
+                                    <option value="">-----</option>
                                     @if($sections)
                                         @foreach($sections as $section)
                                             <?php $dash=''; ?>
@@ -49,7 +49,7 @@
 
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('admin.submit') }}</button>
                         </div>
                     </form>
                 </div>

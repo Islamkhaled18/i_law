@@ -35,6 +35,7 @@ class BookTableSeeder extends Seeder
                 'offer' => '20',
                 'type' => 'PDF',
                 'is_active' => 1,
+                'image' => 'j6sBc261xPOi4sBLYEsJIex0MvzQPJ99BniAA5Fq.jpg',
             ],
             [
                 'id' => 2,
@@ -55,6 +56,7 @@ class BookTableSeeder extends Seeder
                 'offer' => '20',
                 'type' => 'PDF',
                 'is_active' => 1,
+                'image' => 'j6sBc261xPOi4sBLYEsJIex0MvzQPJ99BniAA5Fq.jpg',
 
             ],
 

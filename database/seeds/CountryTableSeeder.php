@@ -23,7 +23,8 @@ class CountryTableSeeder extends Seeder
                 'name_en' => 'Egypt',
                 'name_fr' => 'Egypte',
                 'country_code' => 'Egy',
-                'country_phone_code' => '+20'
+                'country_phone_code' => '+20',
+                'currency_id'=>'1'
             ],
             [
                 'id' => 2,

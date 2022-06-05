@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">{{ trans('admin.currency') }}</label>
-                            <select class="form-control" multiple wire:model="upd_currency">
+                            <select class="form-control" wire:model="upd_currency">
                                   <option disabled value="">------</option>
                                   @foreach ($currencies as $currency)
                                     <option value="{{ $currency->id }}">

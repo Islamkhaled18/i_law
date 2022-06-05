@@ -85,8 +85,14 @@
                                 @enderror
                             </span>
                         </div>
+                        <div class="form-group">
+                            <label for="">{{ trans('admin.image') }}</label>
+                            <input type="file" id="image" name="image" accept="image" class="form-control" wire:model="image">
+                            <span class="text-danger"> @error('image') {{ $message }}@enderror</span>
+                        </div>
+                        
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">{{ trans('admin.update') }}</button>
                         </div>
                     </form>
                 </div>

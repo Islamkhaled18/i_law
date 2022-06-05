@@ -21,7 +21,9 @@ return [
     'user_messages'=>'Messages utilisateur',
     'settings'=>'Réglages',
     'partners'=>'les partenaires',
-    'shipping'=>'Shipping'
+    'shipping'=>'Shipping',
+    'execution_of_techno_misr_software_company'=>'exécution de Techno Misr Software Company',
+    'all_rights_reserved'=>'Tous droits réservés',
     
 
 ];

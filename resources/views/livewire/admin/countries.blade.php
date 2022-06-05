@@ -21,7 +21,7 @@
                             <th>{{ trans('admin.currency') }}</th>
                             <th>{{ trans('admin.country_code') }}</th>
                             <th>{{ trans('admin.country_phone_code') }}</th>
-                            <th>{{ trans('admin.governotaes') }}</th>
+                            <th>{{ trans('admin.governorates') }}</th>
                             
                             <th>{{ trans('admin.actions') }}</th>
                         </tr>
@@ -33,9 +33,13 @@
                                     <td>{{$country->name_ar}}</td>
                                     <td>{{$country->name_en}}</td>
                                     <td>
-                                        @foreach ($country->currencies as $item)
-                                            {{ $item->name_ar }},
-                                        @endforeach
+                                        @php
+                                            $Cuurency = \App\Models\Cuurency::where('id', $country->currency_id)->first();
+                                        @endphp
+                                
+                                            {{ $Cuurency->name_ar }},
+                                       
+
                                     </td>
                                     <td>{{$country->country_code}}</td>
                                     <td>{{$country->country_phone_code}}</td>

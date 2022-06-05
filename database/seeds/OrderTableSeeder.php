@@ -2,6 +2,7 @@
 
 use App\Models\Order;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class OrderTableSeeder extends Seeder
 {
@@ -12,14 +13,35 @@ class OrderTableSeeder extends Seeder
      */
     public function run()
     {
-        Order::create([
+        DB::table('orders')->delete();
 
-           'order_no'=>'#1',
-            'order_date'=>'2022/07/01',
-           'total'=>'200EGP',
-           'payment_method'=>'Prepaid',
-           'shippingAddress_id'=>'1',
-           'shipping_method'=>'Aramex',
-        ]);
+        $orders = [
+            [
+                'id' => 1,
+                'order_no' => '#1',
+                'order_date' => '2022/07/01',
+                'total' => '200EGP',
+                'payment_method' => 'Prepaid',
+                'shippingAddress_id' => '1',
+                'shipping_method' => 'Aramex',
+                'status' => 'pending',
+            ],
+            [
+                'id' => 2,
+                'order_no' => '#2',
+                'order_date' => '2022/07/02',
+                'total' => '250EGP',
+                'payment_method' => 'Prepaid',
+                'shippingAddress_id' => '2',
+                'shipping_method' => 'Aramex',
+                'status' => 'pending',
+            ],
+        ];
+
+        foreach ($orders as $order) {
+            Order::create($order);
+        }
+
+
     }
 }

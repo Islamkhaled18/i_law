@@ -20,6 +20,8 @@ class CreateCountriesTable extends Migration
             $table->string('name_fr');
             $table->string('country_code');
             $table->string('country_phone_code');
+            $table->integer('currency_id')->unsigned()->nullable()->default('1');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -149,7 +149,10 @@ class Vendors extends Component
             'whatsApp'=>$this->upd_whatsApp,
             'company_name'=>$this->upd_company_name,
             'bio'=>$this->upd_bio,
+            'image'=>$this->image->hashName()
         ]);
+        $this->image->store('photos/vendors','public');
+        
         if($update){
             $this->dispatchBrowserEvent('CloseEditVendorModal');
         }

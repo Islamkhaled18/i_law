@@ -1,5 +1,5 @@
 <div>
-    <br><br>
+    
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">

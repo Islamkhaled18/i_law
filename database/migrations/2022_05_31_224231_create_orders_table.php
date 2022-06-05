@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->integer('shippingAddress_id')->unsigned()->nullable();
             $table->foreign('shippingAddress_id')->on('shipping_addresses')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->string('shipping_method');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -1,28 +1,26 @@
 <div>
-    <br><br>
+    
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Vendors</h4>
-                </div>
-                <div class="card-body">
-                    <button wire:click="OpenAddVendorsModal()" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
-                        Add new Vendor
+                <div class="card-header justify-content-start">
+                    <h4 class="card-title">{{ trans('admin.vendors') }}</h4>
+                    <button wire:click="OpenAddVendorsModal()" style="margin-right: 1%" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#default">
+                        {{ trans('admin.add_new_vendor') }}
                     </button>
                 </div>
-                
+
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Vendor Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>{{ trans('admin.name') }}</th>
+                            <th>{{ trans('admin.phone') }}</th>
+                            <th>{{ trans('admin.email') }}</th>
+                            <th>{{ trans('admin.status') }}</th>
+                            <th>{{ trans('admin.status') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,7 +33,7 @@
                                     <td>{{$vendor->getActive()}}</td>
                                     <td>
                                         @if ($vendor->image === null)
-                                        <img src="https://ui-avatars.com/api/?background=random&name={{ $vendor->name ?? '--' }}"
+                                        <img src="{{asset('assets/admin/images/avatars/2.png')}}" height="40" width="40"
                                         id="blah" alt="your image">
 
                                         @else
@@ -79,7 +77,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <code>No Vendors Here ..!!</code>
+                                <p>{{ trans('admin.no_vendors_here') }} ..!!</p>
                             @endforelse
                         </tbody>
                     </table>

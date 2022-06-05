@@ -46,6 +46,7 @@ class Partners extends Component
         }
 
         if($save){
+            toastr()->success('Data has been saved successfully!');
             $this->dispatchBrowserEvent('CloseaddPartnerModal');
         }
     }
@@ -65,7 +66,10 @@ class Partners extends Component
 
         $update = Partner::find($partner_id)->update([
             'name'=>$this->upd_name,
+            'image'=>$this->image->hashName()
         ]);
+        $this->image->store('photos/partners','public');
+        
         if($update){
             $this->dispatchBrowserEvent('CloseEditPartnerModal');
         }

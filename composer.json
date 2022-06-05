@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.10",
-        "tomfordrumm/jwt-auth": "dev-develop"
+        "tomfordrumm/jwt-auth": "dev-develop",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

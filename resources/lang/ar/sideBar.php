@@ -14,7 +14,7 @@ return [
     'books'=>'الكتب',
     'sections'=>'الاقسام',
     'users'=>'المستخدمين',
-    'vendors'=>'البائعين',
+    'vendors'=>'دور النشر',
     'pages'=>'الصفحات',
     'faqs'=>'اسألة واجوبة',
     'currencies'=>'العملات',
@@ -22,5 +22,7 @@ return [
     'settings'=>'الاعدادات',
     'partners'=>'الشركاء',
     'shipping'=>'التوصيل',
+    'execution_of_techno_misr_software_company'=>'تنفيذ شركة تكنو مصر للبرمجيات',
+    'all_rights_reserved'=>'جميع الحقوق محفوظه',
 
 ];

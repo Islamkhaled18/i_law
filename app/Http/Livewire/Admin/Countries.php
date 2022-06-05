@@ -18,9 +18,9 @@ class Countries extends Component
 
     //public $view = 'livewire.admin.countries';
     public $name_ar, $name_en, $name_fr, $country_code, $country_phone_code;
-    public $currency =[];
+    public $currency ;
     public $upd_name_ar, $upd_name_en, $upd_name_fr, $upd_country_code, $upd_country_phone_code,$country_id,$city_id;
-    public $upd_currency =[];
+    public $upd_currency;
     protected $listeners =['damage','country'];
 
     public $currencies;
@@ -67,11 +67,8 @@ class Countries extends Component
             'name_fr' => $this->name_fr,
             'country_code' => $this->country_code,
             'country_phone_code' => $this->country_phone_code,
+            'currency_id' => $this->currency,
         ]);
-
-        $currency = $this->currency;
-
-        $country->currencies()->attach($currency);
 
         if ($country) {
             $this->dispatchBrowserEvent('CloseAddCountryModal');

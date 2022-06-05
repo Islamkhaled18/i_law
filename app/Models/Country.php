@@ -6,15 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    protected $guarded =[];
+    protected $guarded = [];
     protected $table = "countries";
 
     public function currencies()
     {
-        return $this->belongsToMany(Cuurency::class,'country_currencies','country_id','currency_id');
+        return $this->hasOne(Cuurency::class);
     }
 
-    public function governorates(){
+    public function currenciesApi($lang)
+    {
+        $list = [];
+        foreach ($this->currencies as $key => $value) {
+            $list[] = [
+                'id' => $value['id'],
+                'name' => $value['name_' . $lang],
+                'code' => $value['code'],
+                'is_active' => $value['is_active'],
+                'excange_value' => $value['excange_value'],
+
+            ];
+        }
+        return $list;
+    }
+
+    public function governorates()
+    {
         return $this->hasMany(Governorate::class);
     }
 }

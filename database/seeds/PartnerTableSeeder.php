@@ -14,6 +14,7 @@ class PartnerTableSeeder extends Seeder
     {
         Partner::create([
             'name'=>'saad',
+            'image' => 'ZyIom021qxeFfGLkRRqZxZ3tDrjYEsPVGIHbfjni.png'
         ]);
     }
 }

@@ -42,6 +42,10 @@ class Book extends Model
     public function cart(){
         return $this->belongsTo(Cart::class);
     }
+    
+    public function orderItem(){
+        return $this->hasOne(OrderItem::class);
+    }
 
 
 

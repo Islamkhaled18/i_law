@@ -90,7 +90,7 @@
             $('.addPartner').find('span').html('');
             $('.addPartner').find('form')[0].reset();
             $('.addPartner').modal('hide');
-            alert('New Partner Has been Saved Successfully');
+            toastr()->success('Data has been saved successfully!');
         });
         window.addEventListener('OpenEditPartnerModal', function(event) {
             $('.editPartner').find('span').html('');

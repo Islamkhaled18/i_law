@@ -40,9 +40,11 @@ class Admin extends Authenticatable
     }
     protected $appends = ['image_path'];
 
-    public function getImagePathAttribute(){
+    public function getImagePathAttribute()
+    {
         return asset('storage/' . $this->image);
     }
+
 
     public function profileAdmin(){
         return $this->hasOne(profileAdmin::class,'admin_id');

@@ -35,6 +35,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         return view('admin.pages.admins.index');
     })->name('admins.admins'); //admins
 
+    Route::get('ActivityLog','ActivtyLogController@index')->name('admin.activity');
+    Route::get('delete/{id}' , 'ActivtyLogController@destroy')->name('admin.activity.delete');
+
+
     Route::get('currencies', function () {
         return view('admin.pages.currency.index');
     })->name('admin.currencies'); //currencies
@@ -109,9 +113,32 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         return view('admin.pages.admins.profile');
     })->name('admin.profileAdmin'); //AdminProfile
 
-    Route::get('shippings',function(){
-        return view('admin.pages.shipping.index');
-    })->name('admin.shipping'); //AdminProfile
+    //shipping address
+    Route::get('shippingAddress','ShippingController@index')->name('admin.shipping');
+    Route::get('delete/{id}' , 'ShippingController@destroy')->name('admin.shipping.delete');
+    //shipping address
+
+    //orderItems
+    Route::get('orderItems',function(){
+
+        return view('admin.pages.order.orderItem.index');
+    })->name('admin.orders'); 
+    //orderItems
+
+    //orders
+    Route::get('orders',function(){
+        return view('admin.pages.order.index');
+    })->name('admin.orderItems'); 
+    //orders
+
+
+    //reports
+    Route::get('reports',function(){
+
+        return view('admin.pages.report.index');
+    })->name('admin.reports'); 
+    //reports
+
 
 
 
