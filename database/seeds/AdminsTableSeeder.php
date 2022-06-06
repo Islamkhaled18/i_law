@@ -21,6 +21,7 @@ class AdminsTableSeeder extends Seeder
             'phone'=> '01010101010',
             'is_active'=> 1,
             'default_language'=>'Arabic',
+            'image'=> 'gvpx2OlXc2krppkUREhDBqJugPfvbzMVyjdEoYAN.png',
         ]);
     }
 }

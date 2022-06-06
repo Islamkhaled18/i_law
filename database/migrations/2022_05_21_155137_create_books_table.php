@@ -31,7 +31,8 @@ class CreateBooksTable extends Migration
             $table->integer('section_id')->unsigned()->nullable();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('stock');
-            $table->decimal('price');
+            $table->decimal('price_PDF');
+            $table->decimal('price_hardCopy');
             $table->decimal('offer')->nullable();
             $table->string('type')->comment('hard or PDF');
             $table->boolean('is_active');

@@ -23,7 +23,8 @@ return [
     'partners'=>'Partners',
     'shipping'=>'Shipping',
     'execution_of_techno_misr_software_company'=>'Execution of Techno Misr Software Company',
-    'all_rights_reserved'=>'All Right reserved'
+    'all_rights_reserved'=>'All Right reserved',
+    'reports'=>'Reports',
 
 
 

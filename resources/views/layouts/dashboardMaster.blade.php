@@ -54,6 +54,8 @@
 
     <link rel="stylesheet" href="{{ asset('font.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+
 
     @stack('css')
 
@@ -485,6 +487,9 @@
 
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('assets/admin/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+
+
     
     <script>
         $(window).on('load', function() {

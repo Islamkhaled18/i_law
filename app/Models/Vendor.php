@@ -92,4 +92,13 @@ class Vendor extends Authenticatable implements JWTSubject
         }
         return $list;
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function profileVendor(){
+        return $this->hasOne(ProfileVendor::class,'vendor_id');
+    }
 }

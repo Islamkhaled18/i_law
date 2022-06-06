@@ -38,10 +38,11 @@ Route::group(['prefix' => 'vendor'], function () {
     Route::post('login', [AuthVendorController::class, 'login']);
     Route::post('register', [AuthVendorController::class, 'register']);
     Route::middleware('auth:vendor_api')->group(function () {
-        Route::post('logout', [AuthVendorController::class, 'logout']);
-        Route::post('me', [AuthVendorController::class, 'me']);
+    Route::post('logout', [AuthVendorController::class, 'logout']);
+    Route::post('me', [AuthVendorController::class, 'me']);
     });
 });
+
 
 /// contry ///
 Route::group(['prefix' => 'countries'], function () {
@@ -51,6 +52,7 @@ Route::group(['prefix' => 'countries'], function () {
 });
 // contry ///
 
+
 /// city ///
 Route::group(['prefix' => 'cities'], function () {
 
@@ -58,6 +60,7 @@ Route::group(['prefix' => 'cities'], function () {
     Route::get('/city/{id}', [CityController::class, 'show']);
 });
 // city ///
+
 /// governorates ///
 Route::group(['prefix' => 'governorates'], function () {
 
@@ -152,8 +155,14 @@ Route::group(['prefix' => 'book'], function () {
 
     Route::get('/books', [BookController::class, 'index']);
     Route::get('/book/{id}', [BookController::class, 'show']);
+    Route::get('/bookWriter/{writer}', [BookController::class, 'booksByWriter']);
+    Route::get('/bookVendor/{vendor}', [BookController::class, 'booksByVendor']);
+    Route::get('/bookSection/{section}', [BookController::class, 'booksBySection']);
+
 });
 // book ///
+
+
 
 /// cart ///
 Route::group(['prefix' => 'cart'], function () {
@@ -168,6 +177,9 @@ Route::group(['prefix' => 'shippingAddress'], function () {
     Route::get('/shippingAddresses', [ShippingAddressController::class, 'index']);
     Route::get('/shippingAddress/{id}', [ShippingAddressController::class, 'show']);
     Route::post('/shippingAddress', [ShippingAddressController::class, 'store']);
+    Route::post('/shippingAddresses/{id}', [ShippingAddressController::class, 'update']);
+    Route::post('/shippingAddress/{id}', [ShippingAddressController::class, 'destroy']);
+    Route::get('/shippingAddressUser/{id}', [ShippingAddressController::class, 'shippingAddressByUser']);
 });
 // shippingAddress ///
 /// order ///

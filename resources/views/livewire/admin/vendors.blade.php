@@ -20,7 +20,7 @@
                             <th>{{ trans('admin.phone') }}</th>
                             <th>{{ trans('admin.email') }}</th>
                             <th>{{ trans('admin.status') }}</th>
-                            <th>{{ trans('admin.status') }}</th>
+                            <th>{{ trans('admin.actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>

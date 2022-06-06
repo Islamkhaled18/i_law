@@ -24,5 +24,6 @@ return [
     'shipping'=>'التوصيل',
     'execution_of_techno_misr_software_company'=>'تنفيذ شركة تكنو مصر للبرمجيات',
     'all_rights_reserved'=>'جميع الحقوق محفوظه',
+    'reports'=>'التقارير'
 
 ];

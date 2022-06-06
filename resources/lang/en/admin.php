@@ -162,5 +162,7 @@ return [
     'no_orders_Here'=>'No orders here',
     'are_you_sure_?'=>'Are you sure ?',
     'you_want_to_delete'=>'You want to delete ',
+    'no_reports_here'=>'لا يوجد تقارير هنا',
+
 
 ];

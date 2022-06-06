@@ -72,10 +72,15 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     })->name('admin.vendors'); //vendors
 
 
+    //books
     Route::get('books', function () {
         return view('admin.pages.book.index');
-    })->name('admin.books');; //books
-
+    })->name('admin.books');;
+    
+    Route::get('books/{id}','bookController@addImages')->name('admin.books.images');
+    Route::post('imagesStore','bookController@saveBookImages')->name('admin.books.images.store');
+    Route::post('image/delete','bookController@fileDestroy')->name('admin.images.destroy');
+    //books
 
     Route::get('users', function () {
         return view('admin.pages.user.index');

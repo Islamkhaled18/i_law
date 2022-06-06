@@ -30,6 +30,7 @@ Route::group(['namespace'=>'Vendor','middleware'=>'auth:vendor'],function(){
     Route::get('books', function () {
         return view('vendor.pages.book.index');
     })->name('vendor.books');; //books
+    
     Route::get('ProfileAdmin',function(){
         return view('vendor.pages.vendor.profile');
     })->name('vendor.profileVendor'); //AdminProfile

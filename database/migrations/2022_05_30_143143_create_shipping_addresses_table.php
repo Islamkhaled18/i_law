@@ -16,9 +16,15 @@ class CreateShippingAddressesTable extends Migration
         Schema::create('shipping_addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('address');
-            $table->string('country');
-            $table->string('governorate');
-            $table->string('city');
+            $table->integer('country_id')->unsigned()->nullable();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade')->onUpdate('cascade');
+            
+            $table->integer('governorate_id')->unsigned()->nullable();
+            $table->foreign('governorate_id')->references('id')->on('governorates')->onDelete('cascade')->onUpdate('cascade');           
+            
+            $table->integer('city_id')->unsigned()->nullable();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->onUpdate('cascade'); 
+            
             $table->string('postal_code');
             $table->string('phone_number');
             $table->integer('user_id')->unsigned()->nullable();

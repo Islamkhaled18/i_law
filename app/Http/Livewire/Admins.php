@@ -22,7 +22,6 @@ class Admins extends Component
 
     public function render()
     {
-    
         return view('livewire.admins',[
             'admins'=>Admin::orderBy('id','asc')->get(),
         ]);
@@ -36,6 +35,7 @@ class Admins extends Component
         $this->is_active='';
         $this->default_language='';
         $this->dispatchBrowserEvent('OpenAddAdminModal');
+        
     }
 
     public function save(){
@@ -46,7 +46,7 @@ class Admins extends Component
             'password'=>'required',
             'phone'=>'required',
             'is_active'=>'required',
-            'image'=>'required', 
+            
         ]);
 
         $save = Admin::updateOrCreate([
@@ -57,7 +57,8 @@ class Admins extends Component
             'default_language'=>$this->default_language,
             'is_active'=>$this->is_active,
             'password'=>bcrypt($this->password),
-            'image'=>$this->image->hashName()
+            'image'=>$this->image->hashName(),
+            
         ]);
 
 
@@ -66,12 +67,14 @@ class Admins extends Component
             $this->image->store('photos/admins','public');
         }
 
-        toastr()->success('Data has been saved successfully!');
+        
 
         $save->profileAdmin()->save(new profileAdmin());
 
         if($save){
+            toastr()->success('Data has been saved successfully!');
             $this->dispatchBrowserEvent('CloseAddAdminModal');
+            $this->dispatchBrowserEvent('showSuccessMessage');
         }
     }
 

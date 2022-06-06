@@ -20,9 +20,9 @@ class ShippingAddressTableSeeder extends Seeder
             [
                 'id' => 1,
                 'address' => 'القاهره القاهره القاهره',
-                'country' => 'مصر',
-                'governorate' => ' القاهره',
-                'city' => 'السلام',
+                'country_id' => '1',
+                'governorate_id' => '1',
+                'city_id' => '1',
                 'postal_code' => '123456',
                 'phone_number' => '01015151515',
                 'user_id' => '1'
@@ -30,9 +30,9 @@ class ShippingAddressTableSeeder extends Seeder
             [
                 'id' => 2,
                 'address' => 'الاسكندريه الاسكندريه الاسكندريه',
-                'country' => 'مصر',
-                'governorate' => ' الاسكندريه',
-                'city' => 'الاسكندريه',
+                'country_id' => '1',
+                'governorate_id' => '3',
+                'city_id' => '5',
                 'postal_code' => '23465465',
                 'phone_number' => '015511515',
                 'user_id' => '1'

@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminProfileTableSeeder::class);
         $this->call(SectionTableSeeder::class);
         $this->call(OrderItemsTableSeeder::class);
+        $this->call(VendorProfileTableSeeder::class);
 
         
 

@@ -24,6 +24,7 @@ return [
     'shipping'=>'Shipping',
     'execution_of_techno_misr_software_company'=>'exécution de Techno Misr Software Company',
     'all_rights_reserved'=>'Tous droits réservés',
+    'reports'=>'Rapports',
     
 
 ];

@@ -1,5 +1,5 @@
-<!-- Basic trigger modal -->
-<div class="basic-modal">
+<!-- Basic trigger modal add -->
+<div class="basic-modal" wire:ignore.self>
     
     <!-- Modal -->
     <div class="modal fade text-start addPage" id="xlarge" tabindex="-1" aria-labelledby="myModalLabel16" aria-hidden="true">

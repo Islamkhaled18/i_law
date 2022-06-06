@@ -25,7 +25,6 @@ class BookController extends Controller
                 'name' => $value['name_' . $lang],
                 'desc' => $value['desc_' . $lang],
                 'index' => $value['index_' . $lang],
-                
                 'writer_id' => $value['writer_id'],
                 'vendor_id' => $value['vendor_id'],
                 'stock' => $value['stock'],
@@ -62,5 +61,83 @@ class BookController extends Controller
             return $this->bookApiResponse($data, 'ok', 200);
         }
         return $this->bookApiResponse(null, 'The book Not Found', 404);
+    }
+
+    public function booksByWriter($writer, Request $request)
+    {
+
+        $lang = $request->header('lang');
+        $list = [];
+        $books = Book::where('writer_id', $writer)->get();
+        foreach ( $books as $key => $value) {
+            $list[] = [
+                'id' => $value['id'],
+                'name' => $value['name_'.$lang],
+                'desc' => $value['desc_' . $lang],
+                'index' => $value['index_' . $lang],
+                'stock' => $value['stock'],
+                'price' => $value['price'],
+                'offer' => $value['offer'],
+                'type' => $value['type'],
+                'is_active' => $value['is_active'],
+            ];
+        }
+        return response()->json([
+            'data' => $list,
+            'message'=>'ok'
+        ], 200);
+
+    }
+
+    public function booksByVendor($vendor, Request $request)
+    {
+
+        $lang = $request->header('lang');
+        $list = [];
+        $books = Book::where('vendor_id', $vendor)->get();
+        foreach ( $books as $key => $value) {
+            $list[] = [
+                'id' => $value['id'],
+                'name' => $value['name_'.$lang],
+                'desc' => $value['desc_' . $lang],
+                'index' => $value['index_' . $lang],
+                'stock' => $value['stock'],
+                'price' => $value['price'],
+                'offer' => $value['offer'],
+                'type' => $value['type'],
+                'is_active' => $value['is_active'],
+            ];
+        }
+        return response()->json([
+            'data' => $list,
+            'message'=>'ok'
+        ], 200);
+
+    }
+    public function booksBySection($section, Request $request)
+    {
+
+        $lang = $request->header('lang');
+        $list = [];
+        $books = Book::where('section_id', $section)->get();
+
+        foreach ( $books as $key => $value) {
+            $list[] = [
+                'id' => $value['id'],
+                'name' => $value['name_'.$lang],
+                'desc' => $value['desc_' . $lang],
+                'index' => $value['index_' . $lang],
+                'stock' => $value['stock'],
+                'price' => $value['price'],
+                'offer' => $value['offer'],
+                'type' => $value['type'],
+                'is_active' => $value['is_active'],
+            ];
+        }
+        return response()->json([
+            'data' => $list,
+            'message'=>'ok'
+        ], 200);
+
     }
 }

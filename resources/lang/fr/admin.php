@@ -158,6 +158,8 @@ return [
     'no_orders_Here'=>'Pas de commandes ici',
     'are_you_sure_?'=>'êtes-vous sûr ?',
     'you_want_to_delete'=>'Vous souhaitez supprimer ',
+    'no_reports_here'=>'Aucun rapport ici',
+
 
 
 

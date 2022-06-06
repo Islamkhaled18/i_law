@@ -25,6 +25,7 @@ class OrderTableSeeder extends Seeder
                 'shippingAddress_id' => '1',
                 'shipping_method' => 'Aramex',
                 'status' => 'pending',
+                'vendor_id' => '1',
             ],
             [
                 'id' => 2,
@@ -35,6 +36,8 @@ class OrderTableSeeder extends Seeder
                 'shippingAddress_id' => '2',
                 'shipping_method' => 'Aramex',
                 'status' => 'pending',
+                'vendor_id' => '1',
+
             ],
         ];
 

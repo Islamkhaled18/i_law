@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Governorate;
+use App\Models\ProfileVendor;
 use App\Models\Vendor;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -83,7 +84,7 @@ class Vendors extends Component
         
 
 
-
+        $save->profileVendor()->save(new ProfileVendor());
         if($save){
             $this->dispatchBrowserEvent('CloseAddVendorModal');
         }
@@ -152,6 +153,7 @@ class Vendors extends Component
             'image'=>$this->image->hashName()
         ]);
         $this->image->store('photos/vendors','public');
+        
         
         if($update){
             $this->dispatchBrowserEvent('CloseEditVendorModal');

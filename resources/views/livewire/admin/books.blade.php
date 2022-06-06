@@ -17,22 +17,13 @@
                                 <th>#</th>
                                 <th>{{ trans('admin.name_ar') }}</th>
                                 <th>{{ trans('admin.name_en') }}</th>
-                                <th>{{ trans('admin.name_fr') }}</th>
-                                <th>{{ trans('admin.description_ar') }}</th>
-                                <th>{{ trans('admin.description_en') }}</th>
-                                <th>{{ trans('admin.description_fr') }}</th>
-                                <th>{{ trans('admin.index_ar') }}</th>
-                                <th>{{ trans('admin.index_ar') }}</th>
-                                <th>{{ trans('admin.index_ar') }}</th>
                                 <th>{{ trans('sideBar.writers') }}</th>
                                 <th>{{ trans('admin.vendor') }}</th>
-                                <th>{{ trans('admin.section') }}</th>
-                                <th>{{ trans('admin.section') }}</th>
-                                <th>{{ trans('admin.price') }}</th>
-                                <th>{{ trans('admin.offer') }}</th>
+                                <th>{{ trans('admin.stock') }}</th>
                                 <th>{{ trans('admin.type') }}</th>
-                                <th>{{ trans('admin.status') }}</th>
+                                <th>{{ trans('admin.image') }}</th>
                                 <th>{{ trans('admin.actions') }}</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -40,25 +31,21 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $book->name_ar }}</td>
-                                    <td>{{ $book->name_en }}</td>
-                                    <td>{{ $book->name_fr }}</td>
-                                    <td>{{ $book->desc_ar }}</td>
-                                    <td>{{ $book->desc_en }}</td>
-                                    <td>{{ $book->desc_fr }}</td>
-                                    <td>{{ $book->index_ar }}</td>
-                                    <td>{{ $book->index_en }}</td>
-                                    <td>{{ $book->index_fr }}</td>
+                                    <td>{{ $book->name_en }}</td>                           
                                     <td>{{ $book->writer->name_ar }}</td>
                                     <td>{{ $book->vendor->name }}</td>
-                                    <td>{{ $book->section->name_ar ?? '--' }}</td>
                                     <td>{{ $book->stock }}</td>
-                                    <td>{{ $book->price }}</td>
-                                    <td>{{ $book->offer }}</td>
                                     <td>{{ $book->type }}</td>
-                                    <td>{{ $book->getActive() }}</td>
-                                   
+                                    
+                                   <td>
+                                        <a href="{{route('admin.books.images',$book->id)}}"
+                                            class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">
+                                            <i class="fa-solid fa-images"></i>
+                                        </a>
+                                    </td>
                                     <td>
                                         <div class="d-flex justify-content-center">
+
                                             {{-- Begin: Edit button --}}
 
                                             <button wire:click="OpenEditBookModal({{ $book->id }})"

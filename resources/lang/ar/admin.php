@@ -64,7 +64,7 @@ return [
     'answer_ar'=>'الاجابة باللغه العربية',
     'answer_en'=>'الاجابة باللغه الانجليزية',
     'answer_fr'=>'الاجابة باللغه الفرنسيه',
-    'profile'=>'لحساب',
+    'profile'=>'الحساب',
     'remember_password_page'=>'صفحة تذكر كلمة المرور',
     'roles'=>'الادوار',
     'add_new_role'=>'اضافة دور جديد',
@@ -163,4 +163,5 @@ return [
     'no_orders_Here'=>'لا يوجد طلبات هنا',
     'are_you_sure_?'=>'هل انت متأكد',
     'you_want_to_delete'=>'انت تريد حذف ',
+    'no_reports_here'=>'لا يوجد تقارير هنا',
 ];

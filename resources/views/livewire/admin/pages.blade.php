@@ -1,13 +1,12 @@
 <div>
-    <br><br>
     <!-- Striped rows start -->
     <div class="row" id="table-striped">
         <div class="col-12">
             <div class="card">
                 <div class="card-header justify-content-start">
                     <h4 class="card-title">{{ trans('admin.pages') }}</h4>
-                    <button type="button" wire:click="OpenAddPageModal()" style="margin-right: 1%" class="btn btn-outline-primary"
-                        data-bs-toggle="modal" data-bs-target="#xlarge">
+                    <button type="button" wire:click="OpenAddPageModal" style="margin-right: 1%" class="btn btn-outline-primary"
+                        >
                         {{ trans('admin.add_new_page') }}
                     </button>
                 </div>
@@ -61,8 +60,7 @@
                         </tbody>
                     </table>
 
-                    @include('admin.pages.page.modals.add-modal')
-                    @include('admin.pages.page.modals.edit-model')
+                   
 
 
                 </div>
@@ -70,12 +68,17 @@
         </div>
     </div>
     <!-- Striped rows end -->
+
+
+    @include('admin.pages.page.modals.add-modal')
+    @include('admin.pages.page.modals.edit-model')
 </div>
 
 @section('scripts')
     <script>
         ClassicEditor
             .create(document.querySelector('#Meta_Desc'))
+            
             .catch(error => {
                 console.error(error);
             });
@@ -87,12 +90,28 @@
                 console.error(error);
             });
     </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#edit_Meta_Desc'))
+            
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#edit_Meta_Keywords'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 
     <script>
-        window.addEventListener('OpenAddPagesModal', function() {
+        window.addEventListener('OpenAddPageModal', function() {
+            console.log('hi');
             $('.addPage').find('span').html('');
             $('.addPage').find('form')[0].reset();
-            $('.addPage').modal('show');
+            $('#xlarge').modal('show');
         });
         window.addEventListener('CloseAddPageModal', function() {
             $('.addPage').find('span').html('');

@@ -34,4 +34,16 @@ class Country extends Model
     {
         return $this->hasMany(Governorate::class);
     }
+
+    public function shippingAddress(){
+        return $this->hasOne(ShippingAddress::class);
+    }
+
+    public function forApi($lang)
+    {
+        return [
+            'name' => $this['name_'.$lang],
+            'id' => $this['id']
+        ];
+    }
 }

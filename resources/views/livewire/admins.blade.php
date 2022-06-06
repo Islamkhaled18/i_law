@@ -88,7 +88,7 @@
 
 @section('scripts')
     <script>
-        
+        var successToastr = toastr['success'];
         window.addEventListener('OpenAddAdminModal', function() {
             $('.addAdmin').find('span').html('');
             $('.addAdmin').find('form')[0].reset();
@@ -96,12 +96,20 @@
         });
 
         window.addEventListener('CloseAddAdminModal', function() {
-            alert('gfg');
+            
             $('.addAdmin').find('span').html('');
             $('.addAdmin').find('form')[0].reset();
-            $('#default').modal('hide');
-            toastr()->success('Data has been saved successfully!');
+            $('.addAdmin').modal('hide');
+
         });
+        window.addEventListener('showSuccessMessage', function() {
+            successToastr('test', 'Success!', {
+                closeButton: true,
+                tapToDismiss: false
+            });
+        });
+
+
 
         window.addEventListener('OpenEditAdminModal', function(event) {
             $('.editAdmin').find('span').html('');

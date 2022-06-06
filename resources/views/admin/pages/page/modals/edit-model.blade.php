@@ -1,12 +1,13 @@
 <!-- Basic trigger modal -->
 <div class="basic-modal">
     <!-- Modal -->
-    <div class="modal fade text-start editPage" wire:ignore.self id="default" tabindex="-1"
-         aria-labelledby="myModalLabel1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal fade text-start editPage" wire:ignore.self id="default" tabindex="-1" aria-labelledby="myModalLabel16" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel1">{{ trans('admin.edit_page') }}</h4>
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -45,12 +46,14 @@
                         </div>
                         <div class="form-group">
                             <label for="">{{ trans('admin.meta_desc') }}</label>
-                            <input type="text" class="form-control" placeholder="Meta Desc" wire:model="upd_meta_desc">
+                            <textarea class="form-control" id="edit_Meta_Desc" wire:model="upd_meta_desc"></textarea>
+
                             <span class="text-danger"> @error('upd_meta_desc') {{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
                             <label for="">{{ trans('admin.meta_keywords') }}</label>
-                            <input type="text" class="form-control" placeholder="Meta Keywords" wire:model="upd_meta_keywords">
+                            <textarea class="form-control" id="edit_Meta_Keywords" wire:model="upd_meta_keywords"></textarea>
+
                             <span class="text-danger"> @error('upd_meta_keywords') {{ $message }}@enderror</span>
                         </div>
 

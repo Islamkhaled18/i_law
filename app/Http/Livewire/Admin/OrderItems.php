@@ -10,6 +10,8 @@ use Livewire\Component;
 
 class OrderItems extends Component
 {
+
+
     public function render()
     {
         $books = Book::all();
@@ -20,4 +22,7 @@ class OrderItems extends Component
             'books' => $books,
         ]);
     }
+
+
+  
 }

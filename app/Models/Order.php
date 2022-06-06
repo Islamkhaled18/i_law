@@ -17,4 +17,9 @@ class Order extends Model
     public function orderitem(){
         return $this->hasMany(OrderItem::class);
     }
+    public function vendor(){
+        return $this->belongsTo(Vendor::class);
+    }
+
+
 }
